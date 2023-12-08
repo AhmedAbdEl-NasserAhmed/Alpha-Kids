@@ -1,0 +1,22 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3rem;
+  width: 50rem;
+  border-radius: 5px;
+  padding: 4rem 6rem;
+  background-color: var(--color-white);
+
+  &__heading {
+    font-family: var(--secondary-font-family);
+    font-size: 3rem;
+    align-self: flex-start;
+    margin-bottom: 1rem;
+  }
+
+  &__img {
+    align-self: center;
+    width: 8rem;
+  }
+}

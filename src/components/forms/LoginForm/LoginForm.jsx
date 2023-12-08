@@ -98,7 +98,11 @@ function LoginForm({ flip, setFlip }) {
         <Button disabled={isPending} type="submit" variation="login">
           {isPending ? <Loader /> : "Login"}
         </Button>
-        <Button variation="rotate" onClick={() => setFlip(() => true)}>
+        <Button
+          disabled={isPending}
+          variation="rotate"
+          onClick={() => setFlip(() => true)}
+        >
           Create a new account
         </Button>
       </div>

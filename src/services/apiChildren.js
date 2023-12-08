@@ -1,11 +1,23 @@
 import supabase from "./supabase";
 
-export async function createChild(id, name, gender) {
-  const { data, error } = await supabase
-    .from("children")
-    .insert([{ parentID: id, childName: name }]);
+export async function createChild({ id, childName, childGender, childAvatar }) {
+  console.log("childName", childName);
 
-  if (error) throw new Error("can't add a child");
+  console.log("gender", childGender);
 
-  return data;
+  try {
+    const { data, error } = await supabase.from("children").insert([
+      {
+        parentID: id,
+        childName: childName,
+        childGender: childGender,
+        childAvatar: childAvatar,
+      },
+    ]);
+    if (error) throw new Error("can't add a child");
+
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
 }
