@@ -1,16 +1,17 @@
 import { useCreateChild } from "hooks/useCreateChild";
 import { useUser } from "hooks/useUser";
 import { useMemo } from "react";
-import Loader from "ui/Loader/Loader";
+import Loader from "UI/Loader/Loader";
 import { images } from "../../../assets/index";
-import Modal from "ui/Modal/Modal";
-import Input from "ui/Input";
+import Modal from "UI/Modal/Modal";
+import Input from "UI/Input";
 import { useForm } from "react-hook-form";
 import styles from "./AddChildForm.module.scss";
-import Button from "ui/Button";
+import Button from "UI/Button";
 import { userNameMaxLength } from "constants/user";
+import { useGetChildren } from "hooks/useGetChildren";
 
-function AddChildForm() {
+function AddChildForm({ showModal, setShowModal }) {
   const { createChild, isPending: isCreating } = useCreateChild();
 
   const {
@@ -30,14 +31,14 @@ function AddChildForm() {
 
   const randomNumber = useMemo(() => Math.trunc(Math.random() * 3) + 1, []);
 
-  //   console.log(randomNumber);
-
   const childAvatar =
     formData.gender === "male"
       ? images.profiles[`m${randomNumber}`]
       : images.profiles[`f${randomNumber}`];
 
   const { user } = useUser();
+
+  const { refetch } = useGetChildren();
 
   function onSubmit({ childName, gender }) {
     if (formData.childName === "" && !formData.gender) return;
@@ -50,14 +51,21 @@ function AddChildForm() {
         childAvatar: childAvatar,
       },
       {
-        onSuccess: reset(),
+        onSuccess: () => {
+          refetch();
+          setShowModal(false);
+          reset();
+        },
       }
     );
   }
 
   return (
-    <Modal>
-      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+    <Modal showModal={showModal} setShowModal={setShowModal}>
+      <form
+        className={`${styles.form} ${showModal ? "move-down" : ""}`}
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <h2 className={styles["form__heading"]}>Add New profile</h2>
         <img className={styles["form__img"]} src={childAvatar} alt="logo" />
 

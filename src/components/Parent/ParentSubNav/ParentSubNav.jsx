@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styles from "./ParentSubNav.module.scss";
-import Container from "ui/Container/Container";
+import Container from "UI/Container/Container";
 
 function ParentSubNav() {
   return (

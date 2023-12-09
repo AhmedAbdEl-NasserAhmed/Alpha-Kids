@@ -42,10 +42,27 @@ img {
   filter: grayscale(var(--image-grayscale)) opacity(var(--image-opacity));
 }
 
+.fix-icon svg {
+  transform: translateY(-3px);
+}
+
 .rotate-orgin {
   transform: translate(-50%, -50%) rotateY(0);
 }
 
 .rotate-reverse {
   transform: translate(-50%, -50%) rotateY(180deg);
+}
+
+.move-down {
+  transform: translateY(0);
+}
+
+.show {
+  z-index: 1;
+  opacity: 1;
+}
+
+.show-modal {
+  visibility: visible;
 }

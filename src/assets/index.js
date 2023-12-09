@@ -1,5 +1,6 @@
 export const images = {
   profiles: {
+    default: require("./profiles/default.png"),
     f1: require("./profiles/f1.png"),
     f2: require("./profiles/f2.png"),
     f3: require("./profiles/f3.png"),

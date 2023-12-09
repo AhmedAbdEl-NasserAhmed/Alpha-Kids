@@ -7,6 +7,9 @@
   border-radius: 5px;
   padding: 4rem 6rem;
   background-color: var(--color-white);
+  transform: translateY(-80rem);
+  transition: all 1s cubic-bezier(0, 1.6, 0.99, 0.98);
+  transition-delay: 0.2s;
 
   &__heading {
     font-family: var(--secondary-font-family);

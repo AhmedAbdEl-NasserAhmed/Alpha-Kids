@@ -11,3 +11,11 @@ export function checkUserType(user) {
 
   return type?.id;
 }
+
+export function checkActiveChild(childId, childrenListArray) {
+  const activeChild = childrenListArray?.find((child) => child.id === childId);
+
+  console.log(activeChild);
+
+  return activeChild;
+}

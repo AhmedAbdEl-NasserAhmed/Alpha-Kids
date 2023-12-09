@@ -1,8 +1,8 @@
 import Styles from "./LoginForm.module.scss";
-import Button from "ui/Button";
+import Button from "UI/Button";
 import { useLogin } from "hooks/useLogin";
-import Loader from "ui/Loader/Loader";
-import Input from "ui/Input";
+import Loader from "UI/Loader/Loader";
+import Input from "UI/Input";
 import { useForm } from "react-hook-form";
 import { emailPattern, passwordPattern } from "utils/userTypes";
 

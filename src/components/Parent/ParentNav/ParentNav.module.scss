@@ -20,6 +20,7 @@
     }
 
     & svg {
+      transform: translateY(-3px);
       fill: var(--color-white);
     }
   }

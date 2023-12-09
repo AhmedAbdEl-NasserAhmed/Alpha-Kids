@@ -1,14 +1,20 @@
 import ParentNav from "components/Parent/ParentNav/ParentNav";
 import ParentSubNav from "components/Parent/ParentSubNav/ParentSubNav";
-import AddChildForm from "components/forms/AddChildForm/AddChildForm";
+import ParentDashboard from "../ParentDashboard/ParentDashboard";
+import AddChildForm from "components/Forms/AddChildForm/AddChildForm";
+import { useState } from "react";
+
+import styles from "./ParentProfile.module.scss";
 
 function ParentProfile() {
+  const [showModal, setShowModal] = useState(false);
+
   return (
-    <div>
+    <div className={styles["parent-profile"]}>
       <ParentNav />
       <ParentSubNav />
-      {/* <ParentChildList /> */}
-      <AddChildForm />
+      <ParentDashboard setShowModal={setShowModal} />
+      <AddChildForm showModal={showModal} setShowModal={setShowModal} />
     </div>
   );
 }

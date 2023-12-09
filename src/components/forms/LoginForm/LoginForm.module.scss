@@ -10,6 +10,7 @@
   background-color: white;
   border-radius: 5px;
   min-width: max(35vw, 80%);
+  padding: min(3vw, 2rem);
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -20,15 +21,12 @@
 
   @include respond(mini-phone) {
     min-width: 60vw;
-    padding: min(1.5rem, 2rem);
   }
   @include respond(phone) {
     min-width: 60vw;
-    padding: min(2rem, 2.5rem);
   }
   @include respond(tab-port) {
     min-width: 70vw;
-    padding: min(2.5rem, 3rem);
   }
   @include respond(tab-land) {
     min-width: 75vw;

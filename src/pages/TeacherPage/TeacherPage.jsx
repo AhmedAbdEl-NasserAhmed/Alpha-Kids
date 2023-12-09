@@ -1,5 +1,5 @@
 import { useLogout } from "hooks/useLogout";
-import PagesSpinner from "ui/PagesSpinner/PagesSpinner";
+import PagesSpinner from "UI/PagesSpinner/PagesSpinner";
 
 function TeacherPage() {
   const { logout, isPending } = useLogout();

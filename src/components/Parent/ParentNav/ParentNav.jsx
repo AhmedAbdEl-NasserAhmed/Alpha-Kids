@@ -5,10 +5,10 @@ import { HiOutlineArrowRightOnRectangle } from "react-icons/hi2";
 
 import { useLogout } from "hooks/useLogout";
 import { HiOutlineUser, HiChevronDown } from "react-icons/hi";
-import Button from "ui/Button";
+import Button from "UI/Button";
 import { useState } from "react";
 import { useUser } from "hooks/useUser";
-import PagesSpinner from "ui/PagesSpinner/PagesSpinner";
+import PagesSpinner from "UI/PagesSpinner/PagesSpinner";
 
 function ParentNav() {
   const { logout, isPending } = useLogout();

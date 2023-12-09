@@ -6,7 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
 
 import ParentPage from "./pages/ParentPage/ParentPage";
-import ProtectRoute from "./ui/ProtectRoute";
+import ProtectRoute from "./UI/ProtectRoute";
 import TeacherPage from "./pages/TeacherPage/TeacherPage";
 import PageNotFound from "pages/PageNotFound/PageNotFound";
 import ParentProfile from "components/Parent/ParentProfile/ParentProfile";

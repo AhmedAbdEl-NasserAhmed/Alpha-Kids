@@ -1,10 +1,6 @@
-import supabase from "./supabase";
+import supabase from "./Supabase";
 
 export async function createChild({ id, childName, childGender, childAvatar }) {
-  console.log("childName", childName);
-
-  console.log("gender", childGender);
-
   try {
     const { data, error } = await supabase.from("children").insert([
       {
@@ -20,4 +16,32 @@ export async function createChild({ id, childName, childGender, childAvatar }) {
   } catch (err) {
     console.log(err);
   }
+}
+
+export async function getChildren(id) {
+  let { data, error } = await supabase
+    .from("children")
+    .select("*")
+    .eq("parentID", id);
+
+  if (error) throw new Error("can't get children");
+
+  return data;
+}
+
+export async function getChild(id) {
+  let { data, error } = await supabase
+    .from("children")
+    .select("*")
+    .eq("id", id);
+
+  if (error) throw new Error("can't get Child");
+
+  return data;
+}
+
+export async function deleteChild(id) {
+  const { error } = await supabase.from("children").delete().eq("id", id);
+
+  if (error) throw new Error("can't delete children");
 }
