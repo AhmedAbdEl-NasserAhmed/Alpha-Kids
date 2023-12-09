@@ -9,12 +9,15 @@ import Button from "UI/Button";
 import { useState } from "react";
 import { useUser } from "hooks/useUser";
 import PagesSpinner from "UI/PagesSpinner/PagesSpinner";
+// import { useSelector } from "react-redux";
 
 function ParentNav() {
   const { logout, isPending } = useLogout();
   const { user } = useUser();
 
   const [showProfileList, setShowProfileList] = useState(false);
+
+  // const { name, gender, avatar } = useSelector((store) => store.child);
 
   if (isPending) return <PagesSpinner />;
 

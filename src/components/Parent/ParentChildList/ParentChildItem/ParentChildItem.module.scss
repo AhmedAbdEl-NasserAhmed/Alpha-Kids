@@ -8,8 +8,11 @@
 
   &__img {
     width: 10rem;
-    border: 1px solid var(--color-blue-50);
     border-radius: 50%;
+    &--active {
+      outline-offset: 4px;
+      outline: 4px solid var(--color-blue-50);
+    }
   }
 
   &__name {

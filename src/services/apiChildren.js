@@ -29,17 +29,6 @@ export async function getChildren(id) {
   return data;
 }
 
-export async function getChild(id) {
-  let { data, error } = await supabase
-    .from("children")
-    .select("*")
-    .eq("id", id);
-
-  if (error) throw new Error("can't get Child");
-
-  return data;
-}
-
 export async function deleteChild(id) {
   const { error } = await supabase.from("children").delete().eq("id", id);
 

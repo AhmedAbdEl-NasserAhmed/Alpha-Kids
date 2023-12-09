@@ -8,7 +8,7 @@ export function useDeleteChild() {
 
   const { refetch } = useGetChildren();
 
-  const { mutate: deleteChild, ispending: isDeleting } = useMutation({
+  const { mutate: deleteChild, isPending: isDeleting } = useMutation({
     mutationFn: deleteChildApi,
     onSuccess: () => {
       toast.success("child deleted Successfuly");

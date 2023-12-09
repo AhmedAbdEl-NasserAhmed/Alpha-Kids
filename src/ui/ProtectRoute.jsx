@@ -3,6 +3,7 @@ import { useUser } from "hooks/useUser";
 import { useNavigate } from "react-router-dom";
 import { storage } from "services/Storage";
 import Spinner from "./PagesSpinner/PagesSpinner";
+import { AUTHENTICATION_TOKEN } from "constants/authenticationToken";
 
 function ProtectRoute({ children }) {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ function ProtectRoute({ children }) {
 
   useEffect(
     function () {
-      let accessTokenObj = storage.getStorage();
+      let accessTokenObj = storage.getStorage(AUTHENTICATION_TOKEN);
 
       if (accessTokenObj?.user) {
         if (accessTokenObj.user?.user_metadata.userType) {
