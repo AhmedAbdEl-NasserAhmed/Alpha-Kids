@@ -66,3 +66,26 @@ img {
 .show-modal {
   visibility: visible;
 }
+
+.scaling {
+  transform: scale(1.2);
+  visibility: visible;
+}
+
+.popup {
+  animation: bouncing 1s infinite;
+}
+
+@keyframes bouncing {
+  0% {
+    transform: scale(1.2);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.3);
+  }
+}

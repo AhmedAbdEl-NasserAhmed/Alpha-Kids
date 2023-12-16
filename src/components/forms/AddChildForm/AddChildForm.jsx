@@ -110,7 +110,7 @@ function AddChildForm({ showModal, setShowModal }) {
             errors={errors}
           />
         </div>
-        <Button variation="login" type="submit">
+        <Button disabled={isCreating} variation="login" type="submit">
           {isCreating ? <Loader /> : "Add a child"}
         </Button>
       </form>

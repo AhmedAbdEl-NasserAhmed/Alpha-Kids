@@ -1,0 +1,12 @@
+.popup-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 20px;
+  width: 25rem;
+  height: 25rem;
+  z-index: 200;
+  transform: scale(0);
+  visibility: hidden;
+  transition: all 0.5s;
+}

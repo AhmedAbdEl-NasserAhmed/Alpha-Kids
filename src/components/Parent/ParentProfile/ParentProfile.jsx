@@ -1,4 +1,4 @@
-import ParentNav from "components/Parent/ParentNav/ParentNav";
+import ParentNav from "layouts/Nav/Nav";
 import ParentSubNav from "components/Parent/ParentSubNav/ParentSubNav";
 import ParentDashboard from "../ParentDashboard/ParentDashboard";
 import AddChildForm from "components/Forms/AddChildForm/AddChildForm";

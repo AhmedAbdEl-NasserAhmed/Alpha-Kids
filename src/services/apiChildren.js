@@ -18,6 +18,25 @@ export async function createChild({ id, childName, childGender, childAvatar }) {
   }
 }
 
+export async function setActiveChild({ id, child }) {
+  const { error } = await supabase
+    .from("profiles")
+    .update({ child: [child] })
+    .eq("id", id);
+
+  if (error) throw new Error("can't select child");
+}
+export async function getActiveChild(id) {
+  let { data, error } = await supabase
+    .from("profiles")
+    .select("child")
+    .eq("id", id);
+
+  if (error) throw new Error("can't get child");
+
+  return data;
+}
+
 export async function getChildren(id) {
   let { data, error } = await supabase
     .from("children")

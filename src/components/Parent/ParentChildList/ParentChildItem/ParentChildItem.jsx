@@ -1,29 +1,25 @@
 import { useDeleteChild } from "hooks/useDeleteChild";
 import styles from "./ParentChildItem.module.scss";
 import Loader from "UI/Loader/Loader";
-import { useDispatch, useSelector } from "react-redux";
-import { selectChild } from "store/childSlice";
-import { storage } from "services/Storage";
+import { useSetActiveChild } from "hooks/useSetActiveChild";
+import { useUser } from "hooks/useUser";
+import { useGetActiveChild } from "hooks/useGetActiveChild";
 
 function ParentChildItem({ child, childrenList }) {
+  const { user } = useUser();
+
+  const { data } = useGetActiveChild();
+
+  const currentActiveChild = data ? data[0]?.child[0] : {};
+
+  const { activeChild } = useSetActiveChild();
+
   const { deleteChild, isDeleting } = useDeleteChild();
-
-  const dispatch = useDispatch();
-
-  const { id } = useSelector((store) => store.child);
 
   function selectActiveChild(id) {
     const selectedChild = childrenList.find((child) => child.id === id);
 
-    dispatch(
-      selectChild({
-        childId: selectedChild.id,
-        childName: selectedChild.childName,
-        childGender: selectedChild.childGender,
-        childAvatar: selectedChild.childAvatar,
-      })
-    );
-    storage.setStorage("child", selectedChild);
+    activeChild({ id: user.id, child: selectedChild });
   }
 
   return (
@@ -37,7 +33,9 @@ function ParentChildItem({ child, childrenList }) {
         >
           <img
             className={`${styles["child-item__img"]} ${
-              id === child.id ? styles["child-item__img--active"] : ""
+              currentActiveChild.id === child.id
+                ? styles["child-item__img--active"]
+                : ""
             }`}
             src={child.childAvatar}
             alt=""

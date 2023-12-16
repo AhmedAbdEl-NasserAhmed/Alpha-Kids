@@ -1,0 +1,62 @@
+.link {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.8rem;
+  padding: 1.5rem;
+  border-radius: 50px;
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.1);
+
+  & svg {
+    width: 2.5rem;
+    height: 2.5rem;
+    transform: translateY(-2px);
+  }
+
+  &--1 {
+    svg {
+      fill: var(--primary-blue);
+    }
+  }
+
+  &--2 {
+    svg {
+      fill: yellow;
+    }
+  }
+
+  &--3 {
+    svg {
+      fill: red;
+    }
+  }
+}
+
+.button {
+  font-family: var(--secondary-font-family);
+  font-size: 2.4rem;
+  color: var(--color-white);
+  padding: 1.8rem 1.5rem;
+  border-radius: 50px;
+  transition: all 0.5s;
+  text-align: center;
+
+  &:active {
+    transform: translateY(4px);
+  }
+
+  &--1 {
+    background-color: var(--primary-blue);
+    box-shadow: 0px 4px 3px 0px rgba(17, 116, 155, 1);
+  }
+
+  &--2 {
+    background-color: rgb(243, 243, 36);
+    box-shadow: 0px 4px 3px 0px rgb(175, 168, 26);
+  }
+
+  &--3 {
+    background-color: rgb(243, 36, 36);
+    box-shadow: 0px 4px 3px 0px rgb(176, 14, 14);
+  }
+}

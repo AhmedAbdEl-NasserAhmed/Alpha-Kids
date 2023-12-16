@@ -5,7 +5,7 @@ import Container from "UI/Container/Container";
 function ParentSubNav() {
   return (
     <div className={styles["sub-nav"]}>
-      <Container>
+      <Container variation="bg">
         <div className="flex gap-2 align-items-center text-[1.4rem] text-zinc-50 ">
           <span>
             <Link className="text-cyan-500" to="/parent">

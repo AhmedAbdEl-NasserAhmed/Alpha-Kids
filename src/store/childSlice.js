@@ -1,18 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { storage } from "../services/Storage";
 
-// const activeChild = localStorage.getItem("child");
+// const activeChild = storage.getStorage("child");
 
-const activeChild = storage.getStorage("child");
-
-const initialState = activeChild
-  ? activeChild
-  : {
-      id: "",
-      name: "",
-      gender: "",
-      avatar: "",
-    };
+const initialState = {
+  id: "",
+  name: "",
+  gender: "",
+  avatar: "",
+};
 
 const activeChildSlice = createSlice({
   name: "child",

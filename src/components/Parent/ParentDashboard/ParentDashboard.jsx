@@ -23,7 +23,7 @@ function ParentDashboard({ children, setShowModal }) {
   if (isPending) return <PagesSpinner />;
 
   return (
-    <Container>
+    <Container variation="bg">
       <div className={styles.dashboard}>
         <h2 className={styles["dashboard__heading"]}>Dashboard</h2>
       </div>
