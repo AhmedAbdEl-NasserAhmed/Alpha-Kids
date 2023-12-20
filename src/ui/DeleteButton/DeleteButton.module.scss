@@ -1,0 +1,21 @@
+.delete-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  top: -1.8rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: yellow;
+  background-color: red;
+  right: -1rem;
+  position: absolute;
+  font-size: 1.4rem;
+  cursor: pointer;
+  z-index: 1;
+  transition: all 0.5s;
+
+  &:active {
+    transform: translateY(3px);
+  }
+}

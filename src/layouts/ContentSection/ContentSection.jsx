@@ -1,7 +1,7 @@
 import Container from "UI/Container/Container";
 import PagesSpinner from "UI/PagesSpinner/PagesSpinner";
 import styles from "./ContentSection.module.scss";
-import ContentList from "./ContentList/ContentList";
+import ContentList from "../../components/ContentList/ContentList";
 
 function ContentSection({ data, isPending }) {
   return (

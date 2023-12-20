@@ -4,52 +4,52 @@ import Loader from "UI/Loader/Loader";
 import { useSetActiveChild } from "hooks/useSetActiveChild";
 import { useUser } from "hooks/useUser";
 import { useGetActiveChild } from "hooks/useGetActiveChild";
+import DeleteButton from "UI/DeleteButton/DeleteButton";
 
 function ParentChildItem({ child, childrenList }) {
   const { user } = useUser();
 
-  const { data } = useGetActiveChild();
+  const { data, isLoading } = useGetActiveChild();
 
-  const currentActiveChild = data ? data[0]?.child[0] : {};
+  const currentActiveChild = data ? data[0] : {};
 
-  const { activeChild } = useSetActiveChild();
+  const { activeChild, isPending } = useSetActiveChild();
 
   const { deleteChild, isDeleting } = useDeleteChild();
 
   function selectActiveChild(id) {
     const selectedChild = childrenList.find((child) => child.id === id);
 
-    activeChild({ id: user.id, child: selectedChild });
+    activeChild({ id: user.id, childID: selectedChild.id });
   }
 
+  function onSelectActiveChildHandler() {
+    if (isPending || isLoading) return;
+
+    selectActiveChild(child.id);
+  }
+
+  if (isDeleting) return <Loader />;
+
   return (
-    <>
-      {isDeleting ? (
-        <Loader />
-      ) : (
-        <li
-          onClick={() => selectActiveChild(child.id)}
-          className={styles["child-item"]}
-        >
-          <img
-            className={`${styles["child-item__img"]} ${
-              currentActiveChild.id === child.id
-                ? styles["child-item__img--active"]
-                : ""
-            }`}
-            src={child.childAvatar}
-            alt=""
-          />
-          <p className={styles["child-item__name"]}>{child.childName}</p>
-          <span
-            onClick={() => deleteChild(child.id)}
-            className={styles["child-item__delete"]}
-          >
-            &times;
-          </span>
-        </li>
-      )}
-    </>
+    <li className={styles["child-item"]}>
+      <div
+        className={styles["child-item__container"]}
+        onClick={onSelectActiveChildHandler}
+      >
+        <img
+          className={`${styles["child-item__img"]} ${
+            currentActiveChild.id === child.id
+              ? styles["child-item__img--active"]
+              : ""
+          }`}
+          src={child.childAvatar}
+          alt=""
+        />
+        <p className={styles["child-item__name"]}>{child.childName}</p>
+      </div>
+      <DeleteButton onClick={() => deleteChild(child.id)} />
+    </li>
   );
 }
 

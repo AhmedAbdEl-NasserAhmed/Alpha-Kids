@@ -1,21 +1,31 @@
 import Container from "UI/Container/Container";
 import { useGetVideos } from "hooks/useGetVideos";
-import ContentList from "layouts/ContentSection/ContentList/ContentList";
+import ContentList from "components/ContentList/ContentList";
 import { useParams } from "react-router-dom";
 import YouTube from "react-youtube";
 import PagesSpinner from "UI/PagesSpinner/PagesSpinner";
 import styles from "./SelectedVideoPage.module.scss";
+import useInsertActiveChildVideos from "hooks/useInsertActiveChildVideos";
+import { useGetActiveChild } from "hooks/useGetActiveChild";
 
 function SelectedVideoPage() {
   const { src } = useParams();
+
+  const { data: currentActiveChild } = useGetActiveChild();
+
   const { videos, isPending } = useGetVideos();
+
+  const { insertActiveChildVideos } = useInsertActiveChildVideos();
 
   const relatedVideos = videos?.filter((item) => item?.src !== src).slice(0, 2);
 
-  console.log("relatedVideos", relatedVideos);
+  const watchedVideo = videos?.find((video) => video.src === src);
 
   function handleOnEndVideo() {
-    console.log("ended");
+    insertActiveChildVideos({
+      childId: currentActiveChild[0]?.id,
+      watchedVideo: watchedVideo,
+    });
   }
 
   const opts = {
@@ -29,8 +39,6 @@ function SelectedVideoPage() {
   };
 
   if (isPending) return <PagesSpinner />;
-
-  if (!src) return;
 
   return (
     <>

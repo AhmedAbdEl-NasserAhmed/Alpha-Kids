@@ -2,8 +2,6 @@ import Container from "UI/Container/Container";
 import styles from "./ServicesSection.module.scss";
 import { images } from "../../assets/index";
 
-console.log(images);
-
 function ServicesSection() {
   return (
     <section className={styles["services-section"]}>

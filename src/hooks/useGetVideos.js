@@ -3,8 +3,8 @@ import { getVideos as getVideosApi } from "services/apiVideos";
 
 export function useGetVideos() {
   const { data: videos, isPending } = useQuery({
-    queryFn: getVideosApi,
     queryKey: ["videos"],
+    queryFn: getVideosApi,
   });
 
   return { videos, isPending };

@@ -1,15 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
 import { getChildren } from "services/apiChildren";
-import { useUser } from "./useUser";
+import { getCurrentUser } from "services/authApi";
 
-export function useGetChildren(config) {
-  const { user } = useUser();
+export function useGetChildren() {
+  const { data: user } = useQuery({
+    queryKey: ["user"],
+    queryFn: getCurrentUser,
+  });
 
   const response = useQuery({
-    queryKey: ["children"],
+    queryKey: ["children", user],
     queryFn: () => getChildren(user.id),
-    enabled: config?.enabled || false,
-    ...config,
   });
 
   return response;

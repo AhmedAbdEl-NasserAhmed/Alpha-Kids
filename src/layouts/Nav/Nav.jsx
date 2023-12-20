@@ -12,10 +12,10 @@ import PagesSpinner from "UI/PagesSpinner/PagesSpinner";
 import Loader from "UI/Loader/Loader";
 
 function Nav() {
+  const [showProfileList, setShowProfileList] = useState(false);
+
   const { logout, isPending } = useLogout();
   const { user } = useUser();
-
-  const [showProfileList, setShowProfileList] = useState(false);
 
   if (isPending) return <PagesSpinner />;
 
@@ -42,29 +42,34 @@ function Nav() {
 
       {showProfileList && (
         <ul className={styles["nav__list"]}>
-          {window.location.pathname === "/parent" && (
-            <li>
-              <NavLink className={styles["nav__nav-link"]} to="/parent/profile">
-                <span>
-                  <HiOutlineUser />
-                </span>
-                <span>Profile</span>
-              </NavLink>
-            </li>
-          )}
-          {window.location.pathname === "/teacher" && (
-            <li>
-              <NavLink
-                className={styles["nav__nav-link"]}
-                to="/teacher/profile"
-              >
-                <span>
-                  <HiOutlineUser />
-                </span>
-                <span>Profile</span>
-              </NavLink>
-            </li>
-          )}
+          {user?.user_metadata?.userType === "Parent" &&
+            window.location.pathname !== "/parent/profile" && (
+              <li>
+                <NavLink
+                  className={styles["nav__nav-link"]}
+                  to="/parent/profile"
+                >
+                  <span>
+                    <HiOutlineUser />
+                  </span>
+                  <span>Profile</span>
+                </NavLink>
+              </li>
+            )}
+          {user?.user_metadata?.userType === "teacher" &&
+            window.location.pathname !== "/teacher/profile" && (
+              <li>
+                <NavLink
+                  className={styles["nav__nav-link"]}
+                  to="/teacher/profile"
+                >
+                  <span>
+                    <HiOutlineUser />
+                  </span>
+                  <span>Profile</span>
+                </NavLink>
+              </li>
+            )}
           <li onClick={logout}>
             <span>
               <HiOutlineArrowRightOnRectangle />

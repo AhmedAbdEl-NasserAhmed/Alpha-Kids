@@ -1,14 +1,23 @@
 import { getActiveChild } from "services/apiChildren";
-import { useUser } from "./useUser";
 import { useQuery } from "@tanstack/react-query";
+import { getCurrentProfile } from "services/apiProfiles";
+import { getCurrentUser } from "services/authApi";
 
 export function useGetActiveChild() {
-  const { user } = useUser();
-
-  const data = useQuery({
-    queryKey: ["profiles"],
-    queryFn: () => getActiveChild(user.id),
+  const { data: user } = useQuery({
+    queryKey: ["user"],
+    queryFn: getCurrentUser,
   });
 
-  return data;
+  const { data: currentProfile } = useQuery({
+    queryKey: ["profiles", user],
+    queryFn: () => getCurrentProfile(user.id),
+  });
+
+  const { data, isLoading } = useQuery({
+    queryKey: ["activeChild", currentProfile],
+    queryFn: () => getActiveChild(currentProfile[0]?.activeChild),
+  });
+
+  return { data, isLoading };
 }

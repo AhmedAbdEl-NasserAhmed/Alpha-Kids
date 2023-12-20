@@ -18,23 +18,13 @@ export async function createChild({ id, childName, childGender, childAvatar }) {
   }
 }
 
-export async function setActiveChild({ id, child }) {
+export async function setActiveChild({ id, childID }) {
   const { error } = await supabase
     .from("profiles")
-    .update({ child: [child] })
+    .update({ activeChild: childID })
     .eq("id", id);
 
   if (error) throw new Error("can't select child");
-}
-export async function getActiveChild(id) {
-  let { data, error } = await supabase
-    .from("profiles")
-    .select("child")
-    .eq("id", id);
-
-  if (error) throw new Error("can't get child");
-
-  return data;
 }
 
 export async function getChildren(id) {
@@ -48,8 +38,22 @@ export async function getChildren(id) {
   return data;
 }
 
+export async function getActiveChild(id) {
+  let { data, error } = await supabase
+    .from("children")
+    .select("*")
+    .eq("id", id);
+
+  if (error) throw new Error("can't get active child");
+
+  return data;
+}
+
 export async function deleteChild(id) {
   const { error } = await supabase.from("children").delete().eq("id", id);
 
-  if (error) throw new Error("can't delete children");
+  if (error)
+    throw new Error(
+      "the child might be an active child or have already active videos or games or workshops "
+    );
 }

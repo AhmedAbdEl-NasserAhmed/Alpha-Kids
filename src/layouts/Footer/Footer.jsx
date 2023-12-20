@@ -13,10 +13,18 @@ function Footer() {
           <div>
             <h2 className={styles["footer__heading"]}>Sitemap</h2>
             <ul className={styles["footer__list"]}>
-              <Link to="/parent">Home</Link>
-              <Link to="/workshops">workshops</Link>
-              <Link to="/games">games</Link>
-              <Link to="/videos">videos</Link>
+              <Link onClick={() => window.scrollTo(0, 0)} to="/parent">
+                Home
+              </Link>
+              <Link onClick={() => window.scrollTo(0, 0)} to="/workshops">
+                workshops
+              </Link>
+              <Link onClick={() => window.scrollTo(0, 0)} to="/games">
+                games
+              </Link>
+              <Link onClick={() => window.scrollTo(0, 0)} to="/videos">
+                videos
+              </Link>
             </ul>
           </div>
           <div>

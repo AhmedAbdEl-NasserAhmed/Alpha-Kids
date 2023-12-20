@@ -6,7 +6,6 @@ export function useCreateChild() {
 
   const { mutate: createChild, isPending } = useMutation({
     mutationFn: createChildApi,
-
     onSuccess: () => {
       queryCLient.invalidateQueries({
         queryKey: ["children"],

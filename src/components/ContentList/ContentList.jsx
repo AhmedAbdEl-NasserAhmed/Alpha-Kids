@@ -9,13 +9,8 @@ function ContentList({ data, imgSize }) {
         <h2 className="text-3xl font-semibold">Related category</h2>
       )}
 
-      {data?.map((item) => (
-        <ContentItem
-          imgSize={imgSize}
-          data={data}
-          key={item?.created_at}
-          item={item}
-        />
+      {data?.map((item, index) => (
+        <ContentItem imgSize={imgSize} data={data} key={index} item={item} />
       ))}
     </ul>
   );

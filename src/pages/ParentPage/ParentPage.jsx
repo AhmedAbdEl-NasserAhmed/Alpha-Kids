@@ -10,6 +10,7 @@ import { shuffleArray } from "utils/shuffleArray";
 function ParentPage() {
   const { videos } = useGetVideos();
   const { games } = useGetGames();
+
   const allData = videos?.concat(games);
   const newDataArray = shuffleArray(allData);
 
