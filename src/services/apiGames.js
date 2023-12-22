@@ -11,14 +11,18 @@ export async function getGames() {
 export async function insertActiveChildGames({ childId, watchedGame }) {
   const { data, error } = await supabase
     .from("activeChildGames")
-    .insert([
+    .upsert(
       {
         childId: childId,
         gameId: watchedGame.id,
         thumbnail: watchedGame.thumbnail,
         src: watchedGame.src,
       },
-    ])
+      {
+        onConflict: ["gameId"], // Specify the conflict column(s)
+        ignoreDuplicates: true, // Update existing rows (set to true to ignore)
+      }
+    )
     .select();
 
   if (error) throw new Error("couldn't upload active child related videos");

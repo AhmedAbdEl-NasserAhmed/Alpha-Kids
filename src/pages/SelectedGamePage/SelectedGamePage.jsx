@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 function SelectedGamePage() {
   const [width, setWidth] = useState(window.innerWidth);
 
-  const [height, setHeight] = useState();
+  const [height, setHeight] = useState(window.innerHeight);
 
   const { src } = useParams();
 

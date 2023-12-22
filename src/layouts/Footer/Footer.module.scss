@@ -33,6 +33,7 @@
 
     @include respond(phone) {
       flex-direction: row;
+      align-items: start;
       gap: 0;
     }
 
