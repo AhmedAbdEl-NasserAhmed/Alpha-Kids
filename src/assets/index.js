@@ -1,4 +1,8 @@
 export const images = {
+  logo: {
+    logo: require("./logo/Logo.png"),
+  },
+
   profiles: {
     default: require("./profiles/default.png"),
     f1: require("./profiles/f1.png"),

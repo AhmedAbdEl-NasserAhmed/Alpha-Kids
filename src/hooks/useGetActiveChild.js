@@ -16,7 +16,10 @@ export function useGetActiveChild() {
 
   const { data, isLoading } = useQuery({
     queryKey: ["activeChild", currentProfile],
-    queryFn: () => getActiveChild(currentProfile[0]?.activeChild),
+    queryFn: () =>
+      currentProfile[0].usertype !== "Teacher"
+        ? getActiveChild(currentProfile[0]?.activeChild)
+        : () => {},
   });
 
   return { data, isLoading };

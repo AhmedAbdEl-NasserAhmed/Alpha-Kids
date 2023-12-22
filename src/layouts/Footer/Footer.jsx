@@ -1,6 +1,7 @@
 import Container from "UI/Container/Container";
 import styles from "./Footer.module.scss";
 import { Link } from "react-router-dom";
+import { images } from "assets/index";
 
 function Footer() {
   return (
@@ -8,7 +9,7 @@ function Footer() {
       <Container variation="bg">
         <div className={styles["footer__container"]}>
           <Link onClick={() => window.scrollTo(0, 0)}>
-            <img src="./Logo.png" alt="" />
+            <img src={images.logo.logo} alt="" />
           </Link>
           <div>
             <h2 className={styles["footer__heading"]}>Sitemap</h2>

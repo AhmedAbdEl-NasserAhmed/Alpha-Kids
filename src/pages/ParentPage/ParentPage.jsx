@@ -23,7 +23,7 @@ function ParentPage() {
           variation="button--1"
           text="Learn Now"
         />
-        <div className="flex items-center gap-[2.8rem] mt-[2rem]">
+        <div className="flex flex-col sm:flex-row items-center gap-[2.8rem] mt-[2rem]">
           <Ad
             size="small"
             to="/games"

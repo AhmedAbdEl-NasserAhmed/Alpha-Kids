@@ -56,12 +56,12 @@ function Nav() {
                 </NavLink>
               </li>
             )}
-          {user?.user_metadata?.userType === "teacher" &&
-            window.location.pathname !== "/teacher/profile" && (
+          {user?.user_metadata?.userType === "Teacher" &&
+            window.location.pathname !== "/Teacher/profile" && (
               <li>
                 <NavLink
                   className={styles["nav__nav-link"]}
-                  to="/teacher/profile"
+                  to="/Teacher/profile"
                 >
                   <span>
                     <HiOutlineUser />

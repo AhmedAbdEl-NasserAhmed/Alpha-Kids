@@ -1,5 +1,9 @@
 .content-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 320px));
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
   gap: 2rem;
 }

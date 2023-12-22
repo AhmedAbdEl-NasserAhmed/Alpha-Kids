@@ -5,7 +5,7 @@ function Ad({ src, size, text, variation, to }) {
   if (size === "big")
     return (
       <div className={styles[size]}>
-        <div className="flex">
+        <div className={styles["big__container"]}>
           <img src={src} alt="" />
           <div className={styles["big__details"]}>
             <p className={styles["big__paragraph"]}>Alphabetic</p>

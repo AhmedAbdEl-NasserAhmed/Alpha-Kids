@@ -14,9 +14,13 @@ function ActiveChildVideosList({ data, heading, link }) {
           <span className="text-2xl font-semibold">
             {`Start ${link === "games" ? "playing" : "watching"} ${link}`} --{" "}
             <span
-              className="cursor-pointer"
+              className={`cursor-pointer p-3 ${
+                link === "games" ? "bg-yellow-500" : "bg-red-500"
+              }  rounded-md`}
               onClick={() => navigate(`/${link}`)}
-            >{`Go to ${link} page `}</span>
+            >
+              {`Go to ${link} page  `} &rarr;
+            </span>
           </span>
         </>
       ) : (

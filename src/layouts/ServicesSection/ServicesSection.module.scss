@@ -1,3 +1,5 @@
+@import "styles/mixins";
+
 .services-section {
   position: relative;
   text-align: center;
@@ -6,19 +8,30 @@
   &__services {
     margin-top: 3rem;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(33rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
     justify-content: center;
     align-content: center;
+    @include respond(mini-phone) {
+      gap: 2rem;
+    }
   }
 
   &__service {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.4rem;
+
+    @include respond(phone) {
+      gap: 2rem;
+    }
 
     & img {
-      width: 15rem;
+      width: 8rem;
       margin: 0 auto;
+
+      @include respond(mini-phone) {
+        width: 12rem;
+      }
     }
 
     h2 {
