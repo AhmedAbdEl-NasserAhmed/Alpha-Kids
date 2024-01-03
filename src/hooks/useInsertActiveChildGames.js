@@ -7,8 +7,8 @@ function useInsertActiveChildGames() {
 
   const { mutate: insertActiveChildGames, isPending } = useMutation({
     mutationFn: insertActiveChildGamesApi,
-    onSuccess: () => {
-      toast.success("new game updated");
+    onSuccess: (data) => {
+      toast.success(data ? "new game updated" : "game already played");
       queryClient.invalidateQueries({
         queryKey: ["activeGames"],
       });

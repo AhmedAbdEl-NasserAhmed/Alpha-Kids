@@ -9,21 +9,22 @@ export async function getVideos() {
 }
 
 export async function insertActiveChildVideos({ childId, watchedVideo }) {
-  const { data, error } = await supabase
-    .from("activeChildVideos")
-    .upsert(
-      {
-        childId: childId,
-        videoId: watchedVideo.id,
-        thumbnail: watchedVideo.thumbnail,
-        src: watchedVideo.src,
-      },
-      {
-        onConflict: ["videoId"], // Specify the conflict column(s)
-        ignoreDuplicates: true, // Update existing rows (set to true to ignore)
-      }
-    )
-    .select();
+  let query = supabase.from("activeChildVideos").select("*");
+
+  const { data, error } = await query;
+
+  const uploadedVideo = data.find(
+    (video) => video.videoId === watchedVideo.id && video.childId === childId
+  );
+
+  if (uploadedVideo) return;
+
+  query = await supabase.from("activeChildVideos").insert({
+    childId: childId,
+    videoId: watchedVideo.id,
+    thumbnail: watchedVideo.thumbnail,
+    src: watchedVideo.src,
+  });
 
   if (error) throw new Error("couldn't upload active child related videos");
 

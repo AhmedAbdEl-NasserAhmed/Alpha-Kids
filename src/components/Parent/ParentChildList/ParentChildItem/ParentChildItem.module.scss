@@ -10,7 +10,7 @@
   }
 
   &__img {
-    width: 10rem;
+    width: 9rem;
     border-radius: 50%;
     &--active {
       outline-offset: 4px;
@@ -29,12 +29,12 @@
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    top: -1rem;
+    top: -1.8rem;
     width: 1.5rem;
     height: 1.5rem;
     color: yellow;
     background-color: red;
-    right: 0;
+    right: 2.2rem;
     position: absolute;
     font-size: 1.4rem;
     cursor: pointer;

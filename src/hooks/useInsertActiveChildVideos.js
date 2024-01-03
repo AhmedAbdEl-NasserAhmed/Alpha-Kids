@@ -7,8 +7,8 @@ function useInsertActiveChildVideos() {
 
   const { mutate: insertActiveChildVideos, isPending } = useMutation({
     mutationFn: insertActiveChildVideosApi,
-    onSuccess: () => {
-      toast.success("new video updated");
+    onSuccess: (data) => {
+      toast.success(data ? "new video updated" : "video already watched");
       queryClient.invalidateQueries({
         queryKey: ["activeVideos"],
       });

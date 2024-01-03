@@ -15,6 +15,8 @@ import GamesPage from "pages/GamesPage/GamesPage";
 import VideosPage from "pages/VideosPage/VideosPage";
 import SelectedVideoPage from "pages/SelectedVideoPage/SelectedVideoPage";
 import SelectedGamePage from "pages/SelectedGamePage/SelectedGamePage";
+import TeacherProfile from "components/Teacher/TeacherProfile/TeacherProfile";
+import WorkshopExamPage from "pages/WorkshopLessonsPage/WorkshopLessonsPage";
 
 const queryClient = new QueryClient();
 
@@ -57,9 +59,10 @@ function App() {
             <Route path="/videos" element={<VideosPage />} />
             <Route path="/videos/:src" element={<SelectedVideoPage />} />
             <Route path="/games/:src" element={<SelectedGamePage />} />
+            <Route path="workshops/:id" element={<WorkshopExamPage />} />
           </Route>
-
           <Route path="parent/profile" element={<ParentProfile />} />
+          <Route path="teacher/profile" element={<TeacherProfile />} />
 
           <Route path="*" element={<PageNotFound />} />
         </Routes>

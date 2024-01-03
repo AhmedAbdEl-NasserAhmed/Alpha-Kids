@@ -35,9 +35,6 @@
       flex-direction: row;
       align-items: start;
       gap: 0;
-    }
-
-    @include respond(tab-port) {
       justify-content: space-between;
     }
   }

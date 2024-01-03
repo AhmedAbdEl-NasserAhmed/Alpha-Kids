@@ -8,16 +8,27 @@ import ParentChildList from "../ParentChildList/ParentChildList";
 import { useGetActiveChildVideos } from "hooks/useGetActiveChildVideos";
 import { useGetActiveChildGames } from "hooks/useGetActiveChildGames";
 import ActiveChildContentList from "components/ActiveChildContentList/ActiveChildContentList";
+import { useGetActiveChildWorkshops } from "hooks/useGetActiveChildWorkshops";
+import ActiveChildWorkshopsList from "components/ActiveChildWorkshopsList/ActiveChildWorkshopsList";
 
 function ParentDashboard({ children, setShowModal }) {
   const { data, isPending } = useGetChildren();
+
   const { data: activeVideos, isPending: isGettingActiveVideos } =
     useGetActiveChildVideos();
 
   const { data: activeGames, isPending: isGettingActiveGames } =
     useGetActiveChildGames();
 
-  if (isPending || isGettingActiveVideos || isGettingActiveGames)
+  const { data: activeWorkshops, isPending: isGettingActiveWorkshops } =
+    useGetActiveChildWorkshops();
+
+  if (
+    isPending ||
+    isGettingActiveVideos ||
+    isGettingActiveGames ||
+    isGettingActiveWorkshops
+  )
     return <PagesSpinner />;
 
   return (
@@ -44,7 +55,13 @@ function ParentDashboard({ children, setShowModal }) {
           </div>
           <ParentChildList childrenList={data} />
         </div>
-        <div>
+
+        <div className="flex flex-col gap-[3rem] mt-[4rem]">
+          <ActiveChildWorkshopsList
+            setShowModal={setShowModal}
+            activeWorkshops={activeWorkshops}
+          />
+
           <ActiveChildContentList
             link="videos"
             heading="Watched Videos"

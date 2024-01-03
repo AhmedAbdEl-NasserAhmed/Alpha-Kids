@@ -1,5 +1,5 @@
-import ParentNav from "layouts/Nav/Nav";
-import ParentSubNav from "components/Parent/ParentSubNav/ParentSubNav";
+import Nav from "layouts/Nav/Nav";
+import SubNav from "layouts/SubNav/SubNav";
 import ParentDashboard from "../ParentDashboard/ParentDashboard";
 import AddChildForm from "components/Forms/AddChildForm/AddChildForm";
 import { useState } from "react";
@@ -11,8 +11,8 @@ function ParentProfile() {
 
   return (
     <div className={styles["parent-profile"]}>
-      <ParentNav />
-      <ParentSubNav />
+      <Nav />
+      <SubNav />
       <ParentDashboard setShowModal={setShowModal} />
       <AddChildForm showModal={showModal} setShowModal={setShowModal} />
     </div>

@@ -1,4 +1,4 @@
-import ContentItem from "../ContentItem/ContentItem";
+import ContentItem from "./ContentItem/ContentItem";
 
 import styles from "./ContentList.module.scss";
 

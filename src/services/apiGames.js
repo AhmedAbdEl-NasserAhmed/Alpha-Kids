@@ -9,23 +9,27 @@ export async function getGames() {
 }
 
 export async function insertActiveChildGames({ childId, watchedGame }) {
-  const { data, error } = await supabase
+  let query = supabase.from("activeChildGames").select("*");
+
+  const { data, error } = await query;
+
+  const uploadedGame = data.find(
+    (game) => game.gameId === watchedGame.id && game.childId === childId
+  );
+
+  if (uploadedGame) return;
+
+  query = await supabase
     .from("activeChildGames")
-    .upsert(
-      {
-        childId: childId,
-        gameId: watchedGame.id,
-        thumbnail: watchedGame.thumbnail,
-        src: watchedGame.src,
-      },
-      {
-        onConflict: ["gameId"], // Specify the conflict column(s)
-        ignoreDuplicates: true, // Update existing rows (set to true to ignore)
-      }
-    )
+    .insert({
+      childId: childId,
+      gameId: watchedGame.id,
+      thumbnail: watchedGame.thumbnail,
+      src: watchedGame.src,
+    })
     .select();
 
-  if (error) throw new Error("couldn't upload active child related videos");
+  if (error) throw new Error("couldn't upload active child related games");
 
   return data;
 }

@@ -1,9 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import childSlice from "./childSlice";
+
+import workshopSlice from "./workshopSlice";
 
 const store = configureStore({
   reducer: {
-    child: childSlice,
+    currentWorkshop: workshopSlice,
   },
 });
 
