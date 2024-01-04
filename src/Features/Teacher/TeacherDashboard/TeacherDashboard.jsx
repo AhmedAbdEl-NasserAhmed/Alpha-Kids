@@ -30,7 +30,7 @@ function TeacherDashboard() {
       <Container variation="bg">
         <h2 className="text-[2.5rem] mb-[2.5rem]">Dashboard</h2>
 
-        <Button onClick={() => setShowModal(true)} variation="workshop">
+        <Button onClick={() => setShowModal(true)} variation="primary--2">
           + Create Workshop
         </Button>
 

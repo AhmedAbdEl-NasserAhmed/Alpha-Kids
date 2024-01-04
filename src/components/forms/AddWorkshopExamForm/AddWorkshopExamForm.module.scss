@@ -1,24 +1,14 @@
-.add-exam-form {
-  width: 50vw;
-  border-radius: 5px;
-  padding: 3rem;
-  background-color: var(--color-white);
-  transform: translateY(-80rem);
-  transition: all 1s cubic-bezier(0, 1.6, 0.99, 0.98);
-  transition-delay: 0.2s;
+.container {
+  display: flex;
+  display: grid;
+  height: 55vh;
+  gap: 5rem;
+  grid-template-columns: repeat(2, 1fr);
+}
 
-  &__heading {
-    font-family: var(--secondary-font-family);
-    font-size: 3rem;
-    margin-bottom: 2rem;
-    text-align: center;
-  }
-
-  &__container {
-    display: flex;
-    display: grid;
-    height: 55vh;
-    gap: 5rem;
-    grid-template-columns: repeat(2, 1fr);
-  }
+.heading {
+  font-family: var(--secondary-font-family);
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  text-align: center;
 }

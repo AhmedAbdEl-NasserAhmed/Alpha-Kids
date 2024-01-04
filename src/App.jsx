@@ -4,19 +4,18 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Toaster } from "react-hot-toast";
 
 import Login from "./pages/AuthPage/AuthPage";
-import ParentPage from "./pages/ParentPage/ParentPage";
 import ProtectRoute from "./UI/ProtectRoute";
-import TeacherPage from "./pages/TeacherPage/TeacherPage";
 import PageNotFound from "pages/PageNotFound/PageNotFound";
-import ParentProfile from "components/Parent/ParentProfile/ParentProfile";
+import ParentProfile from "Features/Parent/ParentProfile/ParentProfile";
 import LandingPageLayout from "pages/LandingPageLayout/LandingPageLayout";
 import Workshops from "pages/WorkshopsPage/WorkshopsPage";
 import GamesPage from "pages/GamesPage/GamesPage";
 import VideosPage from "pages/VideosPage/VideosPage";
 import SelectedVideoPage from "pages/SelectedVideoPage/SelectedVideoPage";
 import SelectedGamePage from "pages/SelectedGamePage/SelectedGamePage";
-import TeacherProfile from "components/Teacher/TeacherProfile/TeacherProfile";
+import TeacherProfile from "Features/Teacher/TeacherProfile/TeacherProfile";
 import WorkshopExamPage from "pages/WorkshopLessonsPage/WorkshopLessonsPage";
+import HomePage from "./pages/HomePage/HomePage";
 
 const queryClient = new QueryClient();
 
@@ -41,7 +40,7 @@ function App() {
               path="/parent"
               element={
                 <ProtectRoute>
-                  <ParentPage />
+                  <HomePage />
                 </ProtectRoute>
               }
             />
@@ -50,7 +49,7 @@ function App() {
               path="/teacher"
               element={
                 <ProtectRoute>
-                  <TeacherPage />
+                  <HomePage />
                 </ProtectRoute>
               }
             />

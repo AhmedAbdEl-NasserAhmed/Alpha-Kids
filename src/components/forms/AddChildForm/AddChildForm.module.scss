@@ -1,25 +1,11 @@
-.form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 3rem;
-  width: 50rem;
-  border-radius: 5px;
-  padding: 4rem 6rem;
-  background-color: var(--color-white);
-  transform: translateY(-80rem);
-  transition: all 1s cubic-bezier(0, 1.6, 0.99, 0.98);
-  transition-delay: 0.2s;
+.heading {
+  font-family: var(--secondary-font-family);
+  font-size: 3rem;
+  align-self: flex-start;
+  margin-bottom: 1rem;
+}
 
-  &__heading {
-    font-family: var(--secondary-font-family);
-    font-size: 3rem;
-    align-self: flex-start;
-    margin-bottom: 1rem;
-  }
-
-  &__img {
-    align-self: center;
-    width: 8rem;
-  }
+.img {
+  align-self: center;
+  width: 8rem;
 }

@@ -19,7 +19,7 @@ export function useGetActiveChild() {
     queryFn: () =>
       currentProfile[0].usertype !== "Teacher"
         ? getActiveChild(currentProfile[0]?.activeChild)
-        : () => {},
+        : null,
   });
 
   return { data, isLoading };

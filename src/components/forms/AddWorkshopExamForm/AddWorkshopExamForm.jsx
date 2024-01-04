@@ -1,11 +1,13 @@
+import { useForm } from "react-hook-form";
+import { useEffect, useState } from "react";
+import { useUpdateWokrshopExam } from "hooks/useUpdateWorkshopExam";
+
 import Modal from "UI/Modal/Modal";
 import styles from "./AddWorkshopExamForm.module.scss";
-import { useEffect, useState } from "react";
 import Button from "UI/Button";
 import Input from "UI/Input";
-import { useUpdateWokrshopExam } from "hooks/useUpdateWorkshopExam";
-import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import Form from "UI/Form/Form";
 
 function AddWorkshopExamForm({ showModal, setShowModal, currentWorkshop }) {
   const {
@@ -80,12 +82,13 @@ function AddWorkshopExamForm({ showModal, setShowModal, currentWorkshop }) {
 
   return (
     <Modal showModal={showModal} setShowModal={setShowModal}>
-      <form
+      <Form
+        variation="big"
+        showModal={showModal}
         onSubmit={handleSubmit(onSubmit)}
-        className={`${styles["add-exam-form"]} ${showModal ? "move-down" : ""}`}
       >
         <div>
-          <h2 className={styles["add-exam-form__heading"]}>
+          <h2 className={styles["heading"]}>
             Add Exam To{" "}
             <span className="text-cyan-500">
               {currentWorkshop.workshopName}
@@ -94,7 +97,7 @@ function AddWorkshopExamForm({ showModal, setShowModal, currentWorkshop }) {
           </h2>
 
           <div
-            className={`${styles["add-exam-form__container"]} ${
+            className={`${styles["container"]} ${
               questions.length >= 2 ? "overflow-y-scroll" : ""
             }`}
           >
@@ -207,17 +210,17 @@ function AddWorkshopExamForm({ showModal, setShowModal, currentWorkshop }) {
           <div className="flex justify-between mt-[3rem]">
             <Button
               disabled={isPending}
-              variation="workshop"
+              variation="primary--2"
               onClick={handleAddAnotherQuestion}
             >
               Add another Question
             </Button>
-            <Button disabled={isPending} variation="workshop" type="submit">
+            <Button disabled={isPending} variation="primary--2" type="submit">
               Submit The Questions
             </Button>
           </div>
         </div>
-      </form>
+      </Form>
     </Modal>
   );
 }

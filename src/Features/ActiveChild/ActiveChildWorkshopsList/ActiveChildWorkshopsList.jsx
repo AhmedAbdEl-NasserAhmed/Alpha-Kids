@@ -59,7 +59,7 @@ function ActiveChildWorkshopsList({ activeWorkshops }) {
                     updataWorkshopExamFinished({ id: workshop.id });
                     navigate(`/workshops/${workshop.workshopId}`);
                   }}
-                  variation="miniWorkshop"
+                  variation="danger"
                 >
                   Take Exam again
                 </Button>
@@ -69,7 +69,7 @@ function ActiveChildWorkshopsList({ activeWorkshops }) {
                     setShowModal(true);
                   }}
                   disabled={isPending}
-                  variation="miniWorkshop"
+                  variation="primary--3"
                 >
                   show Exam Result
                 </Button>

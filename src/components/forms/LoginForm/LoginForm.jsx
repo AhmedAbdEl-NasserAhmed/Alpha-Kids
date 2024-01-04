@@ -95,16 +95,15 @@ function LoginForm({ flip, setFlip }) {
       />
 
       <div className="flex md:justify-between gap-4 justify-center sm:justify-center items-center flex-wrap">
-        <Button disabled={isPending} type="submit" variation="login">
+        <Button disabled={isPending} type="submit" variation="primary">
           {isPending ? <Loader /> : "Login"}
         </Button>
-        <Button
-          disabled={isPending}
-          variation="rotate"
+        <h2
+          className="text-xl text-sky-500 cursor-pointer"
           onClick={() => setFlip(() => true)}
         >
           Create a new account
-        </Button>
+        </h2>
       </div>
     </form>
   );

@@ -75,7 +75,7 @@ function WorkshopExamPage() {
     key.endsWith("video")
   );
 
-  if (isPending) return <PagesSpinner />;
+  if (isPending || !currentWorkshop) return <PagesSpinner />;
 
   return (
     <>

@@ -1,0 +1,21 @@
+.form {
+  border-radius: 5px;
+  background-color: var(--color-white);
+  transform: translateY(-80rem);
+  transition: all 1s cubic-bezier(0, 1.6, 0.99, 0.98);
+  transition-delay: 0.2s;
+
+  &--small {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+    width: 50rem;
+    padding: 4rem 6rem;
+  }
+
+  &--big {
+    width: 50vw;
+    padding: 3rem;
+  }
+}

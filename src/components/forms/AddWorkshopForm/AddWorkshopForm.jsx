@@ -1,12 +1,14 @@
-import Modal from "UI/Modal/Modal";
-import styles from "./AddWorkshopForm.module.scss";
 import { useForm } from "react-hook-form";
-import Button from "UI/Button";
-import PagesSpinner from "UI/PagesSpinner/PagesSpinner";
-import Input from "UI/Input";
 import { useEffect, useState } from "react";
 import { useAddWorkshop } from "hooks/useAddWorkshop";
 import { imageUrlPattern, urlPattern } from "utils/userTypes";
+
+import Modal from "UI/Modal/Modal";
+import styles from "./AddWorkshopForm.module.scss";
+import Button from "UI/Button";
+import PagesSpinner from "UI/PagesSpinner/PagesSpinner";
+import Input from "UI/Input";
+import Form from "UI/Form/Form";
 import toast from "react-hot-toast";
 
 function AddWorkshopForm({ showModal, setShowModal }) {
@@ -77,13 +79,14 @@ function AddWorkshopForm({ showModal, setShowModal }) {
 
   return (
     <Modal showModal={showModal} setShowModal={setShowModal}>
-      <form
+      <Form
+        variation="big"
+        showModal={showModal}
         onSubmit={handleSubmit(onSubmit)}
-        className={`${styles.form} ${showModal ? "move-down" : ""}`}
       >
-        <h2 className={styles["form__heading"]}>Add New Workshop</h2>
+        <h2 className={styles["heading"]}>Add New Workshop</h2>
 
-        <div className={styles["form__container"]}>
+        <div className={styles["container"]}>
           <div className="flex flex-col gap-[2.5rem] ">
             <Input
               className={
@@ -143,18 +146,18 @@ function AddWorkshopForm({ showModal, setShowModal }) {
             <Button
               disabled={isPending}
               onClick={handleAddLesson}
-              variation="workshop"
+              variation="primary--2"
             >
               + Add a new Lesson
             </Button>
 
-            <Button disabled={isPending} type="submit" variation="workshop">
+            <Button disabled={isPending} type="submit" variation="primary--2">
               Add workshop
             </Button>
           </div>
 
           <div
-            className={`${styles["form__lessons-container"]}  ${
+            className={`${styles["lessons-container"]}  ${
               lessons.length >= 2 ? "overflow-y-scroll" : ""
             }`}
           >
@@ -204,7 +207,7 @@ function AddWorkshopForm({ showModal, setShowModal }) {
             ))}
           </div>
         </div>
-      </form>
+      </Form>
     </Modal>
   );
 }

@@ -7,10 +7,9 @@ import { useGetVideos } from "hooks/useGetVideos";
 import { useGetGames } from "hooks/useGetGames";
 import { shuffleArray } from "utils/shuffleArray";
 
-function ParentPage() {
+function HomePage() {
   const { videos } = useGetVideos();
   const { games } = useGetGames();
-
   const allData = videos?.concat(games);
   const newDataArray = shuffleArray(allData);
 
@@ -18,6 +17,7 @@ function ParentPage() {
     <div>
       <AdsSection variation="yellow">
         <Ad
+          to="/workshops"
           size="big"
           src={images.gifs.g2}
           variation="button--1"
@@ -46,4 +46,4 @@ function ParentPage() {
   );
 }
 
-export default ParentPage;
+export default HomePage;

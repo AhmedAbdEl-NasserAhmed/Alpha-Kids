@@ -4,6 +4,8 @@ import styles from "./ActiveChildPopup.module.scss";
 function ActiveChildPopup() {
   const { data: currentActiveChild } = useGetActiveChild();
 
+  console.log(currentActiveChild);
+
   if (!currentActiveChild) return null;
 
   const childName = currentActiveChild[0]?.childName;

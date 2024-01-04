@@ -5,6 +5,7 @@ import Loader from "UI/Loader/Loader";
 import { images } from "../../../assets/index";
 import Modal from "UI/Modal/Modal";
 import Input from "UI/Input";
+import Form from "UI/Form/Form";
 import { useForm } from "react-hook-form";
 import styles from "./AddChildForm.module.scss";
 import Button from "UI/Button";
@@ -62,12 +63,13 @@ function AddChildForm({ showModal, setShowModal }) {
 
   return (
     <Modal showModal={showModal} setShowModal={setShowModal}>
-      <form
-        className={`${styles.form} ${showModal ? "move-down" : ""}`}
+      <Form
+        variation="small"
+        showModal={showModal}
         onSubmit={handleSubmit(onSubmit)}
       >
-        <h2 className={styles["form__heading"]}>Add New profile</h2>
-        <img className={styles["form__img"]} src={childAvatar} alt="logo" />
+        <h2 className={styles["heading"]}>Add New Child Profile</h2>
+        <img className={styles["img"]} src={childAvatar} alt="logo" />
 
         <Input
           type="text"
@@ -110,10 +112,10 @@ function AddChildForm({ showModal, setShowModal }) {
             errors={errors}
           />
         </div>
-        <Button disabled={isCreating} variation="login" type="submit">
+        <Button disabled={isCreating} variation="primary" type="submit">
           {isCreating ? <Loader /> : "Add a child"}
         </Button>
-      </form>
+      </Form>
     </Modal>
   );
 }

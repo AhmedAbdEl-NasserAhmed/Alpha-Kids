@@ -1,15 +1,17 @@
-import Container from "UI/Container/Container";
 import styles from "./ParentDashboard.module.scss";
+
+import { useGetChildren } from "hooks/useGetChildren";
 import { images } from "assets";
 import { HiPlusSm } from "react-icons/hi";
-import PagesSpinner from "UI/PagesSpinner/PagesSpinner";
-import { useGetChildren } from "hooks/useGetChildren";
-import ParentChildList from "../ParentChildList/ParentChildList";
 import { useGetActiveChildVideos } from "hooks/useGetActiveChildVideos";
 import { useGetActiveChildGames } from "hooks/useGetActiveChildGames";
-import ActiveChildContentList from "components/ActiveChildContentList/ActiveChildContentList";
 import { useGetActiveChildWorkshops } from "hooks/useGetActiveChildWorkshops";
-import ActiveChildWorkshopsList from "components/ActiveChildWorkshopsList/ActiveChildWorkshopsList";
+
+import Container from "UI/Container/Container";
+import PagesSpinner from "UI/PagesSpinner/PagesSpinner";
+import ParentChildList from "../ParentChildList/ParentChildList";
+import ActiveChildContentList from "Features/ActiveChild/ActiveChildContentList/ActiveChildContentList";
+import ActiveChildWorkshopsList from "Features/ActiveChild/ActiveChildWorkshopsList/ActiveChildWorkshopsList";
 
 function ParentDashboard({ children, setShowModal }) {
   const { data, isPending } = useGetChildren();
