@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useUser } from "hooks/useUser";
 import { useNavigate } from "react-router-dom";
-import { storage } from "services/Storage";
+import { storage } from "services/storage";
 import { AUTHENTICATION_TOKEN } from "constants/authenticationToken";
 import Spinner from "./PagesSpinner/PagesSpinner";
 

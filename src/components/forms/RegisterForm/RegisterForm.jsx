@@ -1,7 +1,7 @@
 import Styles from "./RegisterForm.module.scss";
 
 import { useForm } from "react-hook-form";
-import { storage } from "services/Storage";
+import { storage } from "services/storage";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { emailPattern, passwordPattern, checkUserType } from "utils/userTypes";
