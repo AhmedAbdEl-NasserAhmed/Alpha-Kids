@@ -1,0 +1,42 @@
+.characters-list {
+  display: flex;
+  background-color: var(--primary-blue);
+  justify-content: center;
+  gap: 5rem;
+  padding: 1rem 5rem;
+  flex-wrap: wrap;
+
+  &__item {
+    position: relative;
+    transition: all 0.5s;
+
+    &:hover {
+      margin: 0 6rem;
+    }
+
+    &:active {
+      transform: rotateY(360deg);
+    }
+
+    &--1 {
+      &:active {
+        transform: scale(0) rotateY(5deg);
+      }
+    }
+
+    &--2 {
+      &:active {
+        transform: translateY(-5px) rotateY(360deg);
+      }
+    }
+  }
+
+  &__img {
+    background-color: var(--color-white);
+    width: 8rem;
+    height: 8rem;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid yellow;
+  }
+}

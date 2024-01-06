@@ -207,7 +207,7 @@ function AddWorkshopExamForm({ showModal, setShowModal, currentWorkshop }) {
             })}
           </div>
 
-          <div className="flex justify-between mt-[3rem]">
+          <div className={styles["btn-container"]}>
             <Button
               disabled={isPending}
               variation="primary--2"
