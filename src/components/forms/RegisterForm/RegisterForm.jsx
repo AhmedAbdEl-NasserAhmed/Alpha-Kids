@@ -1,16 +1,15 @@
+import Styles from "./RegisterForm.module.scss";
+
 import { useForm } from "react-hook-form";
 import { storage } from "services/Storage";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { emailPattern, passwordPattern, checkUserType } from "utils/userTypes";
 import { userNameMaxLength, userTypes } from "constants/user";
-
+import { useSignup } from "hooks/useSignup";
 import Button from "UI/Button";
 import Input from "UI/Input";
-import Styles from "./RegisterForm.module.scss";
 import SelectOptions from "UI/SelectOptions";
-
-import { useSignup } from "hooks/useSignup";
 import Loader from "UI/Loader/Loader";
 
 function RegisterForm({ flip, setFlip }) {
