@@ -1,8 +1,15 @@
+@import "styles/mixins.scss";
+
 .heading {
   font-family: var(--secondary-font-family);
-  font-size: 3rem;
+  font-size: 2.4rem;
   align-self: flex-start;
   margin-bottom: 1rem;
+  text-align: center;
+
+  @include respond(phone) {
+    font-size: 3rem;
+  }
 }
 
 .img {

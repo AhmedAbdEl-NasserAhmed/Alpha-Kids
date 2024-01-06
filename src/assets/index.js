@@ -20,6 +20,7 @@ export const images = {
     g5: require("./games/game5.png"),
     g6: require("./games/game6.jpg"),
   },
+
   videos: {
     v1: require("./videos/video1.jpg"),
     v2: require("./videos/video2.jpg"),
@@ -41,5 +42,14 @@ export const images = {
     s1: require("./services/service1.png"),
     s2: require("./services/service2.png"),
     s3: require("./services/service3.png"),
+  },
+
+  characters: {
+    c1: require("./characters/1.jpg"),
+    c2: require("./characters/2.png"),
+    c3: require("./characters/3.jpg"),
+    c4: require("./characters/4.png"),
+    c5: require("./characters/5.jpg"),
+    c6: require("./characters/6.jpg"),
   },
 };

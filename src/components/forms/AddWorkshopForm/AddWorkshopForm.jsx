@@ -87,7 +87,7 @@ function AddWorkshopForm({ showModal, setShowModal }) {
         <h2 className={styles["heading"]}>Add New Workshop</h2>
 
         <div className={styles["container"]}>
-          <div className="flex flex-col gap-[2.5rem] ">
+          <div className="flex flex-col gap-[1.5rem] ">
             <Input
               className={
                 formData?.workshopName && !errors?.workshopName
@@ -142,20 +142,6 @@ function AddWorkshopForm({ showModal, setShowModal }) {
             <p className="text-2xl"> Lessons {lessons.length}</p>
           </div>
 
-          <div className=" flex justify-between row-span-2 col-span-2">
-            <Button
-              disabled={isPending}
-              onClick={handleAddLesson}
-              variation="primary--2"
-            >
-              + Add a new Lesson
-            </Button>
-
-            <Button disabled={isPending} type="submit" variation="primary--2">
-              Add workshop
-            </Button>
-          </div>
-
           <div
             className={`${styles["lessons-container"]}  ${
               lessons.length >= 2 ? "overflow-y-scroll" : ""
@@ -205,6 +191,20 @@ function AddWorkshopForm({ showModal, setShowModal }) {
                 />
               </div>
             ))}
+          </div>
+
+          <div className={styles["btn-container"]}>
+            <Button
+              disabled={isPending}
+              onClick={handleAddLesson}
+              variation="primary--2"
+            >
+              + Add a new Lesson
+            </Button>
+
+            <Button disabled={isPending} type="submit" variation="primary--2">
+              Add workshop
+            </Button>
           </div>
         </div>
       </Form>

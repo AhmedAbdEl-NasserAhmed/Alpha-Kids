@@ -1,3 +1,5 @@
+@import "styles/mixins.scss";
+
 .form {
   border-radius: 5px;
   background-color: var(--color-white);
@@ -12,10 +14,19 @@
     gap: 3rem;
     width: 50rem;
     padding: 4rem 6rem;
+    padding: min(5.5vw, 3.5rem);
+    width: min(50vw, 45rem);
+
+    // @include respond(phone) {
+    // }
   }
 
   &--big {
     width: 50vw;
     padding: 3rem;
+
+    @include respond(phone) {
+      padding: min(4vw, 5rem);
+    }
   }
 }

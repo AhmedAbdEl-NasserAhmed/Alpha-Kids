@@ -47,7 +47,7 @@ function Workshops() {
                     onClick={() => {
                       naviagte(`/workshops/${workshop.id}`);
                     }}
-                    variation="workshop"
+                    variation="primary--2"
                   >
                     Start Learning
                   </Button>
