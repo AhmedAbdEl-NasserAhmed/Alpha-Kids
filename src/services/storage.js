@@ -1,7 +1,10 @@
-const AUTHENTICATION_TOKEN = "sb-uarllyemsintcyzlztee-auth-token";
-
 export const storage = {
-  getStorage() {
-    return JSON.parse(localStorage.getItem(AUTHENTICATION_TOKEN));
+  getStorage(token) {
+    if (!token) return null;
+
+    return JSON.parse(localStorage.getItem(token));
+  },
+  setStorage(token, object) {
+    return localStorage.setItem(token, JSON.stringify(object));
   },
 };

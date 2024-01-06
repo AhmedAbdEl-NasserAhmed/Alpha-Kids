@@ -1,0 +1,55 @@
+@import "styles/mixins";
+
+.footer {
+  padding: 2rem;
+  text-align: center;
+  background-color: var(--color-blue-300);
+
+  @include respond(mini-phone) {
+    padding: 5rem 3rem;
+  }
+
+  & img {
+    width: 10rem;
+
+    @include respond(phone) {
+      width: 14rem;
+    }
+  }
+
+  &__heading {
+    font-size: 3.5rem;
+    color: var(--color-white);
+    margin-bottom: 1rem;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+
+    @include respond(phone) {
+      flex-direction: row;
+      align-items: start;
+      gap: 0;
+      justify-content: space-between;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    color: var(--color-white);
+    font-size: 1.8rem;
+  }
+
+  &__email {
+    text-align: center;
+    font-size: 1.6rem;
+    color: var(--color-white);
+  }
+}

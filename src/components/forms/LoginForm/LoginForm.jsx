@@ -1,8 +1,8 @@
 import Styles from "./LoginForm.module.scss";
-import Button from "ui/Button";
+import Button from "UI/Button";
 import { useLogin } from "hooks/useLogin";
-import Loader from "ui/Loader/Loader";
-import Input from "ui/Input";
+import Loader from "UI/Loader/Loader";
+import Input from "UI/Input";
 import { useForm } from "react-hook-form";
 import { emailPattern, passwordPattern } from "utils/userTypes";
 
@@ -95,12 +95,15 @@ function LoginForm({ flip, setFlip }) {
       />
 
       <div className="flex md:justify-between gap-4 justify-center sm:justify-center items-center flex-wrap">
-        <Button disabled={isPending} type="submit" variation="login">
+        <Button disabled={isPending} type="submit" variation="primary">
           {isPending ? <Loader /> : "Login"}
         </Button>
-        <Button variation="rotate" onClick={() => setFlip(() => true)}>
+        <h2
+          className="text-xl text-sky-500 cursor-pointer"
+          onClick={() => setFlip(() => true)}
+        >
           Create a new account
-        </Button>
+        </h2>
       </div>
     </form>
   );

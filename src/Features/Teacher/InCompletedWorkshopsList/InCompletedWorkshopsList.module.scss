@@ -1,0 +1,22 @@
+.incompleted-workshop {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    gap: 2rem;
+    cursor: pointer;
+
+    & img {
+      width: 22rem;
+      height: 22rem;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+  }
+}

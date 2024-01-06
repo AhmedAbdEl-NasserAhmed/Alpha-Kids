@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  display: grid;
+  height: 55vh;
+  gap: 5rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.heading {
+  font-family: var(--secondary-font-family);
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}

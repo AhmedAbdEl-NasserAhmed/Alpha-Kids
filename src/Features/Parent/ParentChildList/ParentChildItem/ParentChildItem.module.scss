@@ -1,0 +1,48 @@
+.child-item {
+  position: relative;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    cursor: pointer;
+  }
+
+  &__img {
+    width: 9rem;
+    border-radius: 50%;
+    &--active {
+      outline-offset: 4px;
+      outline: 4px solid var(--color-blue-50);
+    }
+  }
+
+  &__name {
+    font-weight: bold;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+  }
+
+  &__delete {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    top: -1.8rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    color: yellow;
+    background-color: red;
+    right: 2.2rem;
+    position: absolute;
+    font-size: 1.4rem;
+    cursor: pointer;
+    z-index: 1;
+    transition: all 0.5s;
+
+    &:active {
+      transform: translateY(3px);
+    }
+  }
+}

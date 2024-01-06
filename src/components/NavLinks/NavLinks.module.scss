@@ -1,0 +1,39 @@
+@import "styles/mixins.scss";
+
+.parent-nav-links {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+
+  @include respond(mini-phone) {
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1.8rem;
+  }
+
+  @include respond(phone) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
+
+    @include respond(mini-phone) {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
+
+  img {
+    @include respond(mini-phone) {
+      width: 5.5rem;
+    }
+
+    @include respond(phone) {
+      width: 7rem;
+    }
+  }
+}

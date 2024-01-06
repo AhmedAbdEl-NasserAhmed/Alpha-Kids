@@ -1,0 +1,18 @@
+.ads-section {
+  position: relative;
+  padding: 4rem 3rem;
+  margin-top: 2rem;
+  background-image: url(../../assets/gifs/kids-pattern.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 1;
+
+  &__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+}

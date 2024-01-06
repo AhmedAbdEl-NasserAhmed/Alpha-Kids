@@ -1,13 +1,13 @@
 import { useForm } from "react-hook-form";
-import Button from "ui/Button";
-import Input from "ui/Input";
+import Button from "UI/Button";
+import Input from "UI/Input";
 import Styles from "./RegisterForm.module.scss";
-import SelectOptions from "ui/SelectOptions";
+import SelectOptions from "UI/SelectOptions";
 import { emailPattern, passwordPattern, checkUserType } from "utils/userTypes";
 import { userNameMaxLength, userTypes } from "constants/user";
 import { useSignup } from "hooks/useSignup";
-import Loader from "ui/Loader/Loader";
-import { storage } from "services/storage";
+import Loader from "UI/Loader/Loader";
+import { storage } from "services/Storage";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
@@ -184,18 +184,18 @@ function RegisterForm({ flip, setFlip }) {
       </div>
 
       <div className="flex justify-center gap-3 m-4 sm:m-3 md:m-2 sm:gap-0 sm:justify-between items-center flex-wrap">
-        <Button disabled={isPending} type="submit" variation="login">
+        <Button disabled={isPending} type="submit" variation="primary">
           {isPending ? <Loader /> : "Sign Up"}
         </Button>
-        <Button
-          variation="rotate"
+        <h2
+          className="text-xl text-sky-500 cursor-pointer"
           onClick={() => {
             setFlip(() => false);
             reset();
           }}
         >
           Already have an account ?
-        </Button>
+        </h2>
       </div>
     </form>
   );

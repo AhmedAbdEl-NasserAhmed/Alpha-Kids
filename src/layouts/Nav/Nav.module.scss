@@ -1,0 +1,63 @@
+.nav {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: var(--primary-blue);
+  padding: 0.8rem 4rem;
+  font-size: 1.6rem;
+  height: 8vh;
+
+  &__profile {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-white);
+    cursor: pointer;
+
+    &__name {
+      display: inline-flex;
+      align-self: center;
+    }
+
+    & svg {
+      transform: translateY(-3px);
+      fill: var(--color-white);
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: var(--color-white);
+    font-size: 1.5rem;
+    top: 3.6rem;
+    border-radius: 4px;
+    box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.2);
+
+    & li {
+      cursor: pointer;
+      display: flex;
+      gap: 1.2rem;
+      transition: all 0.3s;
+      padding: 1rem 1.5rem;
+
+      &:hover {
+        background-color: var(--primary-blue);
+        color: var(--color-white);
+      }
+    }
+
+    & a {
+      &,
+      &:link,
+      &:visited {
+        display: flex;
+        justify-content: center;
+        gap: 1.2rem;
+        font-size: 1.6rem;
+      }
+    }
+  }
+}

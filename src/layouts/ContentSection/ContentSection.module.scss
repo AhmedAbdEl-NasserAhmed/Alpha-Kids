@@ -1,0 +1,16 @@
+.content-section {
+  position: relative;
+  background-image: url(../../assets/patterns/page-pattern.jpg);
+  z-index: 1;
+  padding: 5rem;
+}
+
+.overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: #31c5ff96;
+  z-index: -1;
+}

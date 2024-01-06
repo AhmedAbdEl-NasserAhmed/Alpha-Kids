@@ -1,0 +1,28 @@
+.exam-item {
+  position: relative;
+  padding: 0.2rem;
+  height: 11rem;
+  width: 11rem;
+  border-radius: 50%;
+  background-color: white;
+  overflow-wrap: break-word;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--primary-blue);
+  font-size: 1.6rem;
+  font-family: var(--secondary-font-family);
+  letter-spacing: 1px;
+  cursor: pointer;
+  gap: 0.4rem;
+
+  &__active {
+    outline: 4px solid var(--primary-blue);
+  }
+
+  &__finished {
+    background-color: var(--primary-blue);
+    color: white;
+  }
+}
