@@ -33,7 +33,7 @@ function WorkshopExamPage() {
   const areAllLessonsFinished = lessons?.every((lesson) => lesson.isFinished);
 
   useEffect(() => {
-    if (index >= lessons.length) return;
+    if (index >= lessons?.length) return;
 
     setCurrentLesson(currentWorkshop?.lessons[index]);
   }, [index, currentWorkshop, lessons]);
@@ -71,11 +71,11 @@ function WorkshopExamPage() {
     },
   };
 
+  if (isPending || !currentWorkshop || !currentLesson) return <PagesSpinner />;
+
   const videoSrc = Object.keys(currentLesson).filter((key) =>
     key.endsWith("video")
   );
-
-  if (isPending || !currentWorkshop) return <PagesSpinner />;
 
   return (
     <>
