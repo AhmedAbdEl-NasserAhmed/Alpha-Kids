@@ -1,4 +1,4 @@
-@import "../../../styles/mixins.scss";
+@import "styles/mixins.scss";
 
 .main-title {
   font-size: 3rem;
@@ -9,8 +9,8 @@
   position: absolute;
   background-color: white;
   border-radius: 5px;
-  min-width: max(30vw, 80%);
-  padding: min(3vw, 2rem);
+  min-width: max(30vw, 20rem);
+  padding: min(4vw, 2rem);
   display: flex;
   flex-direction: column;
   gap: 2rem;

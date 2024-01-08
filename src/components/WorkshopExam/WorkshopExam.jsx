@@ -70,7 +70,7 @@ function WorkshopExam({ workShop }) {
 
   const isLastQuestion = currentQuestionIndex === examQuestions.length - 1;
 
-  if (index === examQuestions.length || currentActiveWorkshop?.isExamFinished)
+  if (index === examQuestions?.length || currentActiveWorkshop?.isExamFinished)
     return (
       <p className={styles["current-question__paragraph"]}>
         {`Thanks for having ${workshopName} exam`} ☺

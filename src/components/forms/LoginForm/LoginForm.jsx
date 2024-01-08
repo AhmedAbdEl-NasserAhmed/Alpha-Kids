@@ -89,12 +89,12 @@ function LoginForm({ flip, setFlip }) {
           },
           pattern: {
             value: passwordPattern,
-            message: "invalid Password Format",
+            message: "password must contains: A-z , 0-9 , @ #...",
           },
         }}
       />
 
-      <div className="flex md:justify-between gap-4 justify-center sm:justify-center items-center flex-wrap">
+      <div className="flex md:justify-between gap-4 text-center justify-center sm:justify-center items-center flex-wrap">
         <Button disabled={isPending} type="submit" variation="primary">
           {isPending ? <Loader /> : "Login"}
         </Button>
