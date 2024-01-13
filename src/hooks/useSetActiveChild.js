@@ -7,6 +7,7 @@ export function useSetActiveChild() {
 
   const { mutate: activeChild, isPending } = useMutation({
     mutationFn: setActiveChildApi,
+    mutationKey: ["profiles"],
     onSuccess: () => {
       toast.success("child Selected Successfuly");
       queryClient.invalidateQueries({

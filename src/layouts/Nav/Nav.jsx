@@ -1,19 +1,16 @@
-import { NavLink } from "react-router-dom";
 import styles from "./Nav.module.scss";
-
+import { NavLink } from "react-router-dom";
 import { HiOutlineArrowRightOnRectangle } from "react-icons/hi2";
-
 import { useLogout } from "hooks/useLogout";
 import { HiOutlineUser, HiChevronDown } from "react-icons/hi";
-import Button from "UI/Button";
 import { useState } from "react";
 import { useUser } from "hooks/useUser";
+import Button from "UI/Button";
 import PagesSpinner from "UI/PagesSpinner/PagesSpinner";
 import Loader from "UI/Loader/Loader";
 
 function Nav() {
   const [showProfileList, setShowProfileList] = useState(false);
-
   const { logout, isPending } = useLogout();
   const { user } = useUser();
 
