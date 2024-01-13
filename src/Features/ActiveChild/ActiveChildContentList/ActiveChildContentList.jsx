@@ -4,7 +4,7 @@ import styles from "./ActiveChildContentList.module.scss";
 function ActiveChildContentList({ data, heading, link }) {
   const navigate = useNavigate();
 
-  if (!data.length)
+  if (!data || !data.length)
     return (
       <div>
         <h2 className={`${styles["active-child-content__heading"]} mb-[2rem]`}>

@@ -39,6 +39,8 @@ export async function getChildren(id) {
 }
 
 export async function getActiveChild(id) {
+  if (!id) return null;
+
   let { data, error } = await supabase
     .from("children")
     .select("*")
