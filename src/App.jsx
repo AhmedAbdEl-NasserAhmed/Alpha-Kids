@@ -60,6 +60,7 @@ function App() {
             <Route path="/games/:src" element={<SelectedGamePage />} />
             <Route path="workshops/:id" element={<WorkshopExamPage />} />
           </Route>
+
           <Route path="parent/profile" element={<ParentProfile />} />
           <Route path="teacher/profile" element={<TeacherProfile />} />
 
