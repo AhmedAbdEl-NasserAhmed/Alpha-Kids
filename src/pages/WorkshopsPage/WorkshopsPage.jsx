@@ -5,7 +5,7 @@ import { useGetWorkshops } from "hooks/useGetWorkshops";
 import AdsSection from "layouts/AdsSection/AdsSection";
 import styles from "./WorkshopsPage.module.scss";
 import Button from "UI/Button";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PagesSpinner from "UI/PagesSpinner/PagesSpinner";
 import { useUser } from "hooks/useUser";
 
@@ -43,14 +43,9 @@ function Workshops() {
                 {user?.user_metadata.userType === "Teacher" ? (
                   ""
                 ) : (
-                  <Button
-                    onClick={() => {
-                      naviagte(`/workshops/${workshop.id}`);
-                    }}
-                    variation="primary--2"
-                  >
+                  <Link to={`/workshops/${workshop.id}`} variation="primary--2">
                     Start Learning
-                  </Button>
+                  </Link>
                 )}
               </li>
             ))}

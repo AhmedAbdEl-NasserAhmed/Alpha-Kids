@@ -1,17 +1,22 @@
+import { useEffect, useState } from "react";
 import { images } from "../../assets/index";
 import styles from "./AnimationCharacters.module.scss";
 
 function AnimationCharacters() {
   const characters = images.characters;
 
-  const charactersImages = [];
+  const [charactersImages, setCharactersImages] = useState([]);
 
-  for (const [key, value] of Object.entries(characters)) {
-    charactersImages.push({
-      id: key,
-      value,
-    });
-  }
+  useEffect(() => {
+    const x = [];
+    for (const [key, value] of Object.entries(characters)) {
+      x.push({
+        id: key,
+        value,
+      });
+    }
+    setCharactersImages(x);
+  }, []);
 
   return (
     <ul className={styles["characters-list"]}>

@@ -68,11 +68,14 @@ function ParentDashboard({ children, setShowModal }) {
             link="videos"
             heading="Watched Videos"
             data={activeVideos}
+            actionType={"watching"}
+            className="bg-ye"
           />
           <ActiveChildContentList
             link="games"
             heading="Played Games"
             data={activeGames}
+            actionType={"playing"}
           />
         </div>
         {children}

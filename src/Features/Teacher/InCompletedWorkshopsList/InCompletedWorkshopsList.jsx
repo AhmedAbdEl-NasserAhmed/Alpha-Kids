@@ -31,14 +31,15 @@ function InCompletedWorkshopsList({
           </li>
         ))}
       </ul>
-
-      <AddWorkshopExamForm
-        currentWorkshop={currentWorkshop}
-        showModal={showModal}
-        setShowModal={setShowModal}
-      />
     </div>
   );
 }
 
 export default InCompletedWorkshopsList;
+
+/**
+ *
+ * // // // //
+ * // // // //
+ *
+ */

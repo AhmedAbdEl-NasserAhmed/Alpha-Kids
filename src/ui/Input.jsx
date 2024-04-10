@@ -20,7 +20,7 @@ function Input({
   const styles = {
     login: ` ${className} ${
       errors
-        ? errors[id || ""]
+        ? errors[name || ""]
         : null
         ? "bg-red-200 border-1 border-solid border-red-500 focus:ring-offset-1 focus:ring-red-400 "
         : ""

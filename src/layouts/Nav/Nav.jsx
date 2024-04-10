@@ -16,6 +16,10 @@ function Nav() {
 
   if (isPending) return <PagesSpinner />;
 
+  const isParent =
+    user?.user_metadata?.userType === "Parent" &&
+    window.location.pathname !== "/parent/profile";
+
   return (
     <nav className={styles.nav}>
       {!user ? (
@@ -39,20 +43,16 @@ function Nav() {
 
       {showProfileList && (
         <ul className={styles["nav__list"]}>
-          {user?.user_metadata?.userType === "Parent" &&
-            window.location.pathname !== "/parent/profile" && (
-              <li>
-                <NavLink
-                  className={styles["nav__nav-link"]}
-                  to="/parent/profile"
-                >
-                  <span>
-                    <HiOutlineUser />
-                  </span>
-                  <span>Profile</span>
-                </NavLink>
-              </li>
-            )}
+          {user.isParent && (
+            <li>
+              <NavLink className={styles["nav__nav-link"]} to="/parent/profile">
+                <span>
+                  <HiOutlineUser />
+                </span>
+                <span>Profile</span>
+              </NavLink>
+            </li>
+          )}
           {user?.user_metadata?.userType === "Teacher" &&
             window.location.pathname !== "/teacher/profile" && (
               <li>

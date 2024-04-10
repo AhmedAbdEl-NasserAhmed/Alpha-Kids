@@ -1,9 +1,9 @@
 import Styles from "./RegisterForm.module.scss";
 
 import { useForm } from "react-hook-form";
-import { storage } from "services/storage";
+import { storage } from "services/Storage";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { emailPattern, passwordPattern, checkUserType } from "utils/userTypes";
 import { userNameMaxLength, userTypes } from "constants/user";
 import { useSignup } from "hooks/useSignup";
@@ -11,12 +11,21 @@ import Button from "UI/Button";
 import Input from "UI/Input";
 import SelectOptions from "UI/SelectOptions";
 import Loader from "UI/Loader/Loader";
+import { useSelector } from "react-redux";
+
+/**
+ *
+ * LOGIN
+ * DISPATCH LOGIN ACTION
+ * LOGIN ACTION -> Redux | setLocalStorage  const initalState = {token: 'xxxx', user: {name: 'xxx'}}
+ * login() -> action creator
+ */
 
 function RegisterForm({ flip, setFlip }) {
   let accessTokenObj = storage.getStorage();
+  // const { auth } = useSelector((store) => store.auth);
 
   const navigate = useNavigate();
-
   useEffect(
     function () {
       if (accessTokenObj?.user) {
@@ -51,7 +60,10 @@ function RegisterForm({ flip, setFlip }) {
     signup(
       { userName, userType, email, password },
       {
-        onSuccess: () => setFlip(false),
+        onSuccess: () => {
+          // navigate(`/${auth.user?.user_metadata.userType}`);
+          setFlip(false);
+        },
 
         onSettled: () => reset(),
       }

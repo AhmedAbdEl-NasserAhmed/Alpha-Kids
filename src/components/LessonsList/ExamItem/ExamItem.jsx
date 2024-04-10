@@ -12,16 +12,16 @@ function ExamItem({ setShowExamQuestions, areAllLessonsFinished, workshop }) {
     (currentWorkshop) => currentWorkshop?.workshopId === workshop?.id
   );
 
+  function onClick() {
+    if (!(currentActiveWorkshop?.allLessonsFinished || areAllLessonsFinished))
+      return;
+    setShowExamQuestions(true);
+    setAddStyles(false);
+  }
+
   return (
     <div
-      onClick={
-        currentActiveWorkshop?.allLessonsFinished || areAllLessonsFinished
-          ? () => {
-              setShowExamQuestions(true);
-              setAddStyles(false);
-            }
-          : () => {}
-      }
+      onClick={onClick}
       className={`${styles["exam-item"]} ${
         areAllLessonsFinished && addStyles
           ? `${styles["exam-item__active"]} exam-popup`
@@ -33,11 +33,9 @@ function ExamItem({ setShowExamQuestions, areAllLessonsFinished, workshop }) {
       } `}
     >
       <span>
-        {currentActiveWorkshop?.allLessonsFinished || areAllLessonsFinished ? (
-          ""
-        ) : (
-          <HiLockClosed />
-        )}
+        {!(
+          currentActiveWorkshop?.allLessonsFinished || areAllLessonsFinished
+        ) && <HiLockClosed />}
       </span>
       <span>Exam</span>
     </div>

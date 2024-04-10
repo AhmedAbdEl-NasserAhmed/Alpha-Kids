@@ -7,6 +7,7 @@ import InCompletedWorkshopsList from "../InCompletedWorkshopsList/InCompletedWor
 import PagesSpinner from "UI/PagesSpinner/PagesSpinner";
 import AddWorkshopForm from "components/Forms/AddWorkshopForm/AddWorkshopForm";
 import CompletedWorkshopList from "../CompletedWorkshopList/CompletedWorkshopList";
+import AddWorkshopExamForm from "components/Forms/AddWorkshopExamForm/AddWorkshopExamForm";
 
 function TeacherDashboard() {
   const [showModal, setShowModal] = useState(false);
@@ -16,17 +17,24 @@ function TeacherDashboard() {
   const { workshops, isLoading } = useGetWorkshops();
 
   const completedWorkshops = workshops?.filter(
-    (workshop) => workshop.isTestDone === true
+    (workshop) => workshop.isTestDone
   );
 
-  const inCompletedWorkshops = workshops?.filter(
-    (workshop) => workshop.isTestDone === false
-  );
+  // const inCompletedWorkshops = workshops?.filter(
+  //   (workshop) => workshop.isTestDone
+  // );
 
   if (isLoading) return <PagesSpinner />;
 
   return (
     <div className={styles["teacher-dashboard"]}>
+      <AddWorkshopForm showModal={showModal} setShowModal={setShowModal} />
+      <AddWorkshopExamForm
+        currentWorkshop={currentWorkshop}
+        showModal={showModal}
+        setShowModal={setShowModal}
+      />
+
       <Container variation="bg">
         <h2 className="text-[2.5rem] mb-[2.5rem]">Dashboard</h2>
 
@@ -49,12 +57,10 @@ function TeacherDashboard() {
             setCurrentWorkshop={setCurrentWorkshop}
             currentWorkshop={currentWorkshop}
             heading="InCompleted Workshops"
-            workshops={inCompletedWorkshops}
+            workshops={!completedWorkshops}
           />
         </div>
       </Container>
-
-      <AddWorkshopForm showModal={showModal} setShowModal={setShowModal} />
     </div>
   );
 }

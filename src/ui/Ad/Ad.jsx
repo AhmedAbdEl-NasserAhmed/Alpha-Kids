@@ -1,6 +1,10 @@
 import LinkEl from "UI/LinkEl/LinkEl";
 import styles from "./Ad.module.scss";
 
+/**
+ *
+ * split Ad into two different components (<SmallAd />, <BigAd />)
+ */
 function Ad({ src, size, text, variation, to }) {
   if (size === "big")
     return (

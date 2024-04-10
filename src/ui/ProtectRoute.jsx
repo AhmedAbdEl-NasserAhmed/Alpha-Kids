@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useUser } from "hooks/useUser";
 import { useNavigate } from "react-router-dom";
-import { storage } from "services/storage";
+import { storage } from "services/Storage";
 import { AUTHENTICATION_TOKEN } from "constants/authenticationToken";
 import Spinner from "./PagesSpinner/PagesSpinner";
 
@@ -16,16 +16,16 @@ function ProtectRoute({ children }) {
 
       if (accessTokenObj?.user) {
         if (accessTokenObj.user?.user_metadata.userType) {
-          navigate(
-            `/${String(
-              accessTokenObj.user?.user_metadata.userType
-            ).toLocaleLowerCase()}`
-          );
+          // navigate(
+          //   `/${String(
+          //     accessTokenObj.user?.user_metadata.userType
+          //   ).toLocaleLowerCase()}`
+          // );
         } else if (window.location.pathname === "/") {
-          navigate(-1);
+          // navigate(-1);
         }
       } else {
-        navigate("/");
+        // navigate("/");
       }
     },
     [isLoading, navigate]

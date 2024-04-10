@@ -10,6 +10,8 @@ import { images } from "assets/index";
 function ParentNavLinks() {
   const { user } = useUser();
 
+  const isParent = user?.user_metadata?.userType === "Parent";
+
   return (
     <Container variation="md">
       <div className={styles["parent-nav-links"]}>
@@ -35,7 +37,49 @@ function ParentNavLinks() {
         </div>
       </div>
     </Container>
+    // <Container variation="md">
+    //   <div className={styles["parent-nav-links"]}>
+    //     <div>
+    //       <Link to="/">
+    //         <img src={images.logo.logo} alt="main" />
+    //       </Link>
+    //     </div>
+    //     <div className={styles["parent-nav-links__container"]}>
+    //       <LinkEl type="link" icon={<HiHome />} to="/workshops">
+    //         workshops
+    //       </LinkEl>
+    //       {isParent ? <ParentNavLinks /> : <TeacherNavLinks />}
+    //     </div>
+    //   </div>
+    // </Container>
   );
 }
 
 export default ParentNavLinks;
+
+{
+  /* <Container variation="md">
+<div className={styles["parent-nav-links"]}>
+  <div>
+    <Link to="/">
+      <img src={images.logo.logo} alt="main" />
+    </Link>
+  </div>
+  <div className={styles["parent-nav-links__container"]}>
+    <LinkEl type="link" icon={<HiHome />} to="/workshops">
+      workshops
+    </LinkEl>
+    {user?.user_metadata?.userType === "Parent" && (
+      <>
+        <LinkEl type="link" icon={<HiRocketLaunch />} to="/games">
+          games
+        </LinkEl>
+        <LinkEl type="link" icon={<HiPlay />} to="/videos">
+          videos
+        </LinkEl>
+      </>
+    )}
+  </div>
+</div>
+</Container> */
+}

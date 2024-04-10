@@ -44,6 +44,11 @@ function LoginForm({ flip, setFlip }) {
     >
       <h1 className={Styles["main-title"]}>Login</h1>
 
+      {/* S(O)LID PRINCIPLES
+OPEN-CLOSED principle
+OPEN FOR EXTENSION
+CLOSED FOR MODIFICATION */}
+
       <Input
         className={
           formData?.email && !errors?.email

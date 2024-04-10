@@ -6,9 +6,9 @@ function ActiveChildPopup() {
 
   if (!currentActiveChild) return null;
 
-  const childName = currentActiveChild[0]?.childName;
+  const childName = currentActiveChild?.[0]?.childName;
 
-  const childImage = currentActiveChild[0]?.childAvatar;
+  const childImage = currentActiveChild?.[0]?.childAvatar;
 
   return (
     <div className={styles["active-child-popup"]}>

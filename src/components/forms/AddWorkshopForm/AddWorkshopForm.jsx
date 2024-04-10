@@ -151,7 +151,6 @@ function AddWorkshopForm({ showModal, setShowModal }) {
               <div className="flex flex-col  gap-[2.5rem]  " key={index}>
                 <Input
                   type="text"
-                  name="lessonName"
                   errors={errors}
                   register={register}
                   validationOptions={{

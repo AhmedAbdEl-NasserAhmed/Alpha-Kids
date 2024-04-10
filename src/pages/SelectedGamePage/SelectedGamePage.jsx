@@ -19,15 +19,19 @@ function SelectedGamePage() {
 
   const { user } = useUser();
 
+  const { data: currentActiveChild } = useGetActiveChild();
+
+  const { insertActiveChildGames } = useInsertActiveChildGames();
+
+  // ----------
+
   const { games, isPending } = useGetGames();
 
   const relatedVideos = games?.filter((item) => item?.src !== src).slice(0, 2);
 
   const watchedGame = games?.find((game) => game.src === src);
 
-  const { data: currentActiveChild } = useGetActiveChild();
-
-  const { insertActiveChildGames } = useInsertActiveChildGames();
+  // ---------
 
   function handleOnEndVideo() {
     if (user?.user_metadata?.userType === "Teacher") return;
@@ -36,6 +40,8 @@ function SelectedGamePage() {
       watchedGame: watchedGame,
     });
   }
+
+  // ---------
 
   useEffect(() => {
     function upadteWindowDimensions() {
@@ -52,6 +58,8 @@ function SelectedGamePage() {
     return () => window.removeEventListener("resize", upadteWindowDimensions);
   }, [width]);
 
+  // ---------
+
   const opts = {
     width: `${width > 870 ? "630" : "300"}`,
     height: `${height < 500 ? "300" : "350"}`,
@@ -63,6 +71,8 @@ function SelectedGamePage() {
   };
 
   if (isPending) return <PagesSpinner />;
+
+  // ---------
 
   if (!src) return;
 

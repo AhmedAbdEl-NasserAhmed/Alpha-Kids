@@ -7,14 +7,16 @@ import AnimationCharacters from "components/AnimationCharacters/AnimationCharact
 
 function LandingPageLayout() {
   return (
-    <div>
+    <>
       <Nav />
       <NavLinks />
       <AnimationCharacters />
       <ActiveChildPopup />
+
       <Outlet />
+
       <Footer />
-    </div>
+    </>
   );
 }
 

@@ -1,7 +1,13 @@
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./ActiveChildContentList.module.scss";
 
-function ActiveChildContentList({ data, heading, link }) {
+function ActiveChildContentList({
+  data,
+  heading,
+  link,
+  actionType,
+  className,
+}) {
   const navigate = useNavigate();
 
   if (!data || !data.length)
@@ -11,12 +17,11 @@ function ActiveChildContentList({ data, heading, link }) {
           {heading}
         </h2>
         <span className="text-2xl font-semibold">
-          {`Start ${link === "games" ? "playing" : ""} ${
-            link === "videos" ? "watching" : ""
-          } ${link}`}{" "}
+          {`Start   ${actionType}
+            ${link}`}{" "}
           --{" "}
           <span
-            className={`cursor-pointer p-3 ${
+            className={`cursor-pointer p-3 ${className} ${
               link === "games" ? "bg-yellow-500" : ""
             } ${link === "videos" ? "bg-red-500" : ""} rounded-md`}
             onClick={() => navigate(`/${link}`)}

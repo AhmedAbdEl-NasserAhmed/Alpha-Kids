@@ -16,6 +16,7 @@ import SelectedGamePage from "pages/SelectedGamePage/SelectedGamePage";
 import TeacherProfile from "Features/Teacher/TeacherProfile/TeacherProfile";
 import WorkshopExamPage from "pages/WorkshopLessonsPage/WorkshopLessonsPage";
 import HomePage from "./pages/HomePage/HomePage";
+import ScrollToTop from "components/ScrollToTop/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -23,49 +24,50 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools client={queryClient} initialIsOpen={false} />
-
       <BrowserRouter>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <ProtectRoute>
-                <Login />
-              </ProtectRoute>
-            }
-          />
-
-          <Route element={<LandingPageLayout />}>
+        <ScrollToTop>
+          <Routes>
             <Route
-              path="/parent"
+              path="/"
               element={
                 <ProtectRoute>
-                  <HomePage />
+                  <Login />
                 </ProtectRoute>
               }
             />
 
-            <Route
-              path="/teacher"
-              element={
-                <ProtectRoute>
-                  <HomePage />
-                </ProtectRoute>
-              }
-            />
-            <Route path="/workshops" element={<Workshops />} />
-            <Route path="/games" element={<GamesPage />} />
-            <Route path="/videos" element={<VideosPage />} />
-            <Route path="/videos/:src" element={<SelectedVideoPage />} />
-            <Route path="/games/:src" element={<SelectedGamePage />} />
-            <Route path="workshops/:id" element={<WorkshopExamPage />} />
-          </Route>
+            <Route element={<LandingPageLayout />}>
+              <Route
+                path="/parent"
+                element={
+                  <ProtectRoute>
+                    <HomePage />
+                  </ProtectRoute>
+                }
+              />
 
-          <Route path="parent/profile" element={<ParentProfile />} />
-          <Route path="teacher/profile" element={<TeacherProfile />} />
+              <Route
+                path="/teacher"
+                element={
+                  <ProtectRoute>
+                    <HomePage />
+                  </ProtectRoute>
+                }
+              />
+              <Route path="/workshops" element={<Workshops />} />
+              <Route path="/games" element={<GamesPage />} />
+              <Route path="/videos" element={<VideosPage />} />
+              <Route path="/videos/:src" element={<SelectedVideoPage />} />
+              <Route path="/games/:src" element={<SelectedGamePage />} />
+              <Route path="workshops/:id" element={<WorkshopExamPage />} />
+            </Route>
 
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
+            <Route path="parent/profile" element={<ParentProfile />} />
+            <Route path="teacher/profile" element={<TeacherProfile />} />
+
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+        </ScrollToTop>
       </BrowserRouter>
       <Toaster
         position="top-center"

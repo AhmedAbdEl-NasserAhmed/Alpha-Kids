@@ -21,13 +21,17 @@ function SelectedVideoPage() {
 
   const { data: currentActiveChild } = useGetActiveChild();
 
-  const { videos, isPending } = useGetVideos();
-
   const { insertActiveChildVideos } = useInsertActiveChildVideos();
+
+  // ----------
+
+  const { videos, isPending } = useGetVideos();
 
   const relatedVideos = videos?.filter((item) => item?.src !== src).slice(0, 2);
 
   const watchedVideo = videos?.find((video) => video.src === src);
+
+  // ----------
 
   function handleOnEndVideo() {
     if (user?.user_metadata?.userType === "Teacher") return;
@@ -37,6 +41,8 @@ function SelectedVideoPage() {
       watchedVideo: watchedVideo,
     });
   }
+
+  // ---------
 
   useEffect(() => {
     function upadteWindowDimensions() {
@@ -53,6 +59,8 @@ function SelectedVideoPage() {
     return () => window.removeEventListener("resize", upadteWindowDimensions);
   }, [width]);
 
+  // ---------
+
   const opts = {
     width: `${width > 870 ? "630" : "300"}`,
     height: `${height < 500 ? "300" : "350"}`,
@@ -64,6 +72,8 @@ function SelectedVideoPage() {
   };
 
   if (isPending) return <PagesSpinner />;
+
+  // ---------
 
   return (
     <>

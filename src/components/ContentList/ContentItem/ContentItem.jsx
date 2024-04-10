@@ -3,6 +3,7 @@ import { HiRocketLaunch, HiPlay } from "react-icons/hi2";
 import styles from "./ContentItem.module.scss";
 import PopupVideo from "UI/PopupVideo/PopupVideo";
 import { useState } from "react";
+import ContentItemIcon from "./ContentItemIcon";
 
 function ContentItem({ item, imgSize }) {
   const [showPopupVideo, setShowPopupVideo] = useState(false);
@@ -24,28 +25,26 @@ function ContentItem({ item, imgSize }) {
           className={styles[`content-item__${imgSize}-img`]}
           alt=""
         />
-        {item?.type === "games" && imgSize !== "small" && (
-          <span
-            onMouseEnter={() => setShowPopupVideo(true)}
-            onMouseLeave={() => setShowPopupVideo(false)}
-            className={`${styles["content-item__icon"]} ${
-              styles["content-item__icon--games"]
-            } ${popupItem ? "popup" : ""} ${showPopupVideo ? "opacity-0" : ""}`}
-          >
-            <HiRocketLaunch />
-          </span>
-        )}
-        {item?.type === "videos" && imgSize !== "small" && (
-          <span
-            onMouseEnter={() => setShowPopupVideo(true)}
-            onMouseLeave={() => setShowPopupVideo(false)}
-            className={`${styles["content-item__icon"]} ${
-              styles["content-item__icon--videos"]
-            } ${popupItem ? "popup" : ""} ${showPopupVideo ? "opacity-0" : ""}`}
-          >
-            <HiPlay />
-          </span>
-        )}
+        {/* <ContentItemIcon
+          type={"games"}
+          size={"small"}
+          popupItem={popupItem}
+          setShowPopupVideo={setShowPopupVideo}
+        /> */}
+
+        {/* {item?.type === "videos" && imgSize !== "small" && ( */}
+        <span
+          onMouseEnter={() => setShowPopupVideo(true)}
+          onMouseLeave={() => setShowPopupVideo(false)}
+          className={`${styles["content-item__icon"]} ${
+            styles["content-item__icon--videos"]
+          } ${showPopupVideo ? "popup" : ""} ${
+            showPopupVideo ? "opacity-0" : ""
+          }`}
+        >
+          {item?.type === "games" ? <HiRocketLaunch /> : <HiPlay />}
+        </span>
+        {/* )} */}
       </Link>
       {showPopupVideo && (
         <PopupVideo
